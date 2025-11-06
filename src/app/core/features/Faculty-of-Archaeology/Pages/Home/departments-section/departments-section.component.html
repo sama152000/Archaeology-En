@@ -1,0 +1,21 @@
+<section class="departments py-section">
+  <div class="container-fluid">
+    <h2 class="section-title text-light">Departments</h2>
+    <div class="underline"></div>
+
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6" *ngFor="let department of departments">
+        <div class="fade-in-element">
+          <app-card
+            [imageUrl]="department.image"
+            [imageAlt]="department.name"
+            [title]="department.name"
+            [description]="department.description"
+            imageHeight="250px">
+            <a [href]="department.link" class="btn btn-primary-custom btn-small">Learn More</a>
+          </app-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

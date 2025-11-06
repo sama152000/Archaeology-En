@@ -1,0 +1,18 @@
+<section class="fun-facts py-section">
+  <div class="container-fluid">
+    <h2 class="section-title">Faculty in Numbers</h2>
+    <div class="underline"></div>
+
+    <div class="row g-4 justify-content-center">
+      <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let fact of facts">
+        <div class="fact-card fade-in-element text-center">
+          <div class="icon-circle mx-auto mb-3">
+            <i [class]="fact.icon"></i>
+          </div>
+          <div class="counter-number">{{ fact.currentCount }}</div>
+          <h3 class="fact-label">{{ fact.label }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

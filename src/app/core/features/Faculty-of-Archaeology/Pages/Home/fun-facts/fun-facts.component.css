@@ -1,0 +1,189 @@
+/* ===== Fun Facts Section ===== */
+.fun-facts {
+  background: linear-gradient(135deg, #fff8ee, #f7e8c0);
+  padding: 5rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== Container ===== */
+.fun-facts .container-fluid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ===== Section Title ===== */
+.section-title {
+  color: #2c2410;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  font-family: "Cinzel", serif;
+}
+
+/* ===== Underline ===== */
+.underline {
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #c59c6c;
+  border-radius: 4px;
+  margin: 0 auto 3rem;
+}
+
+/* ===== Fact Card ===== */
+.fact-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2.5rem 1.5rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.fact-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(197, 156, 108, 0.35);
+}
+
+/* ===== Icon Circle ===== */
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(145deg, #c59c6c, #a87d55);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 15px rgba(197, 156, 108, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.fact-card:hover .icon-circle {
+  transform: scale(1.1);
+}
+
+/* ===== Counter Number ===== */
+.counter-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2c2410;
+  margin: 0.5rem 0;
+  line-height: 1;
+  font-family: "Roboto", sans-serif;
+}
+
+/* ===== Fact Label ===== */
+.fact-label {
+  color: #666;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ===== Fade In Animation ===== */
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.fade-in-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .fun-facts {
+    padding: 4rem 0;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .underline {
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .fun-facts {
+    padding: 3rem 0;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .underline {
+    width: 60px;
+    height: 3px;
+  }
+
+  .icon-circle {
+    width: 70px;
+    height: 70px;
+    font-size: 1.8rem;
+  }
+
+  .counter-number {
+    font-size: 2.5rem;
+  }
+
+  .fact-label {
+    font-size: 1rem;
+  }
+
+  .fact-card {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .counter-number {
+    font-size: 2.2rem;
+  }
+
+  .fact-label {
+    font-size: 0.95rem;
+  }
+
+  .icon-circle {
+    width: 60px;
+    height: 60px;
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .counter-number {
+    font-size: 2rem;
+  }
+
+  .fact-label {
+    font-size: 0.9rem;
+  }
+
+  .fact-card {
+    padding: 1.8rem 0.8rem;
+  }
+}

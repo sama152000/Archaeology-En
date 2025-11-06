@@ -1,0 +1,47 @@
+<section class="latest-news py-section">
+  <div class="container-fluid">
+    <h2 class="section-title">Latest News</h2>
+    <div class="underline"></div>
+
+    <!-- Featured News -->
+    <div class="featured-news mb-5 fade-in-element">
+      <div class="row g-0 bg-white rounded-3 shadow">
+        <div class="col-lg-6">
+          <div class="featured-image">
+            <img [src]="featuredNews.image" [alt]="featuredNews.title" class="img-fluid h-100 w-100" style="object-fit: cover;">
+            <div class="overlay"></div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="featured-content p-4 d-flex flex-column justify-content-center h-100">
+            <span class="news-date text-primary-custom fw-semibold">{{ featuredNews.date }}</span>
+            <h3 class="featured-title my-3">{{ featuredNews.title }}</h3>
+            <p class="featured-excerpt text-muted mb-4">{{ featuredNews.excerpt }}</p>
+            <a [href]="featuredNews.link" class="read-more text-primary-custom fw-semibold text-decoration-none">
+              Read Full Story →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- News Grid -->
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6" *ngFor="let news of newsItems">
+        <div class="fade-in-element">
+          <app-card
+            [imageUrl]="news.image"
+            [imageAlt]="news.title"
+            [title]="news.title"
+            [description]="news.excerpt"
+            [badge]="news.date"
+            imageHeight="220px">
+            <a [href]="news.link" class="text-primary-custom fw-semibold text-decoration-none">
+              Read More →
+            </a>
+          </app-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

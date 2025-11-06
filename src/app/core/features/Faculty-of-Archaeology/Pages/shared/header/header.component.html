@@ -1,0 +1,40 @@
+<header class="site-header">
+  <div class="container-fluid header-container">
+    <div class="logo-left">
+      <a href="/">
+        <div class="sun-logo">
+          <img src="https://images.pexels.com/photos/262780/pexels-photo-262780.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop" alt="Faculty of Archaeology" />
+          <div class="sun-glow"></div>
+        </div>
+      </a>
+      <h1 class="site-title">Faculty of Archaeology</h1>
+    </div>
+
+    <nav class="site-nav" [class.active]="isMenuOpen">
+      <ul class="main-menu">
+        <li *ngFor="let item of menuItems" 
+            [class.has-submenu]="item.hasSubmenu"
+            [class.active]="item.active">
+          <a [href]="item.link || '#'" 
+             [class.active]="item.active"
+             (click)="!item.hasSubmenu && closeMenu()">
+            {{ item.label }}
+            <span *ngIf="item.hasSubmenu"> ▾</span>
+          </a>
+          <ul *ngIf="item.hasSubmenu" class="submenu">
+            <li *ngFor="let subItem of item.submenu">
+              <a [href]="subItem.link" (click)="closeMenu()">{{ subItem.label }}</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" 
+            (click)="toggleMenu()" 
+            [attr.aria-expanded]="isMenuOpen"
+            aria-label="Toggle navigation">
+      ☰
+    </button>
+  </div>
+</header>

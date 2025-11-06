@@ -1,0 +1,241 @@
+/* ===== Header Base ===== */
+.site-header {
+  background: linear-gradient(90deg, #2b2410, #e7d3a6);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  padding: 0.5rem 0;
+  transition: all 0.4s ease;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+
+/* ===== Logo Section ===== */
+.logo-left {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.sun-logo {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f4d37c 0%, #d1a74f 60%, #3d3116 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(210, 168, 95, 0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 2px solid #c8a04f;
+}
+
+.sun-logo img {
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 2;
+  filter: brightness(1.1) contrast(1.2);
+}
+
+.sun-logo:hover {
+  transform: rotate(10deg) scale(1.08);
+  box-shadow: 0 0 40px rgba(249, 215, 126, 0.8);
+}
+
+.sun-glow {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(249, 215, 126, 0.5), transparent 70%);
+  animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1.1);
+    opacity: 0.4;
+  }
+}
+
+.site-title {
+  color: #f6e9c6;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
+  font-family: "Cinzel", serif;
+}
+
+/* ===== Navigation ===== */
+.site-nav .main-menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.site-nav .main-menu > li {
+  position: relative;
+}
+
+.site-nav a {
+  color: #f6e9c6;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  position: relative;
+  letter-spacing: 0.8px;
+  transition: color 0.3s ease;
+  padding: 15px 10px;
+  display: block;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #d2a85f;
+  transition: width 0.3s ease;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: #d2a85f;
+}
+
+.site-nav a:hover::after,
+.site-nav a.active::after {
+  width: 100%;
+}
+
+/* ===== Submenu (Vertical Dropdown) ===== */
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  display: none;
+  flex-direction: column;
+  min-width: 230px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  animation: dropdownFade 0.25s ease-in-out;
+  z-index: 999;
+}
+
+.submenu li a {
+  display: block;
+  color: #00365e;
+  padding: 14px 22px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  text-transform: none;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transition: all 0.25s ease;
+}
+
+.submenu li:last-child a {
+  border-bottom: none;
+}
+
+.submenu li a:hover {
+  background: linear-gradient(90deg, #004b7f 0%, #005d99 100%);
+  color: #fff;
+  padding-left: 28px;
+}
+
+/* Show submenu on hover */
+.has-submenu:hover .submenu {
+  display: flex;
+}
+
+/* Animation */
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Mobile ===== */
+.nav-toggle {
+  display: none;
+  background: none;
+  color: #f6e9c6;
+  font-size: 1.8rem;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .header-container {
+    padding: 0 1rem;
+  }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #00263f;
+    width: 100%;
+    padding: 1rem 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .site-nav.active {
+    display: block;
+  }
+
+  .site-nav .main-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .submenu {
+    position: static;
+    display: none;
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .has-submenu.open .submenu {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}

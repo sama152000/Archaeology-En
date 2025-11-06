@@ -1,0 +1,202 @@
+/* ===== Departments Section ===== */
+.departments {
+  background: url('/assets/lux7.jpg') center/cover no-repeat fixed;
+  padding: 5rem 0;
+  text-align: center;
+  position: relative;
+  color: #fff;
+}
+
+.departments::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 20, 10, 0.7);
+  z-index: 1;
+}
+
+/* ===== Container ===== */
+.departments .container-fluid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== Section Title ===== */
+.section-title {
+  color: #edd5a1;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  font-family: "Cinzel", serif;
+}
+
+/* ===== Underline ===== */
+.underline {
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #c59c6c;
+  border-radius: 4px;
+  margin: 0 auto 3rem;
+}
+
+/* ===== Fade In Animation ===== */
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.fade-in-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Card Styling (via app-card) ===== */
+/* تأكد إن الـ Card Component بتاعك بيحتوي على الـ CSS ده */
+app-card {
+  display: block;
+  height: 100%;
+}
+
+app-card .card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transition: all 0.4s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+app-card .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(197, 156, 108, 0.35);
+}
+
+app-card .card-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+app-card .card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+app-card .card:hover .card-image img {
+  transform: scale(1.1);
+}
+
+app-card .card-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+app-card .card-title {
+  color: #2c2410;
+  font-size: 1.3rem;
+  margin-bottom: 0.7rem;
+  font-weight: 600;
+}
+
+app-card .card-text {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+app-card .btn {
+  align-self: flex-start;
+  padding: 0.7rem 1.5rem;
+  background: linear-gradient(90deg, #c59c6c, #d2a85f);
+  color: #1b1a17;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  transition: all 0.4s ease;
+  box-shadow: 0 3px 10px rgba(197, 156, 108, 0.3);
+}
+
+app-card .btn:hover {
+  background: linear-gradient(90deg, #d2a85f, #e7d3a6);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(249, 215, 126, 0.5);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .departments {
+    padding: 4rem 0;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .underline {
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .departments {
+    padding: 3rem 0;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .underline {
+    width: 60px;
+    height: 3px;
+  }
+
+  app-card .card-image {
+    height: 180px;
+  }
+
+  app-card .card-title {
+    font-size: 1.2rem;
+  }
+
+  app-card .card-text {
+    font-size: 0.9rem;
+  }
+
+  app-card .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  app-card .card-image {
+    height: 160px;
+  }
+
+  app-card .card-body {
+    padding: 1.2rem;
+  }
+}

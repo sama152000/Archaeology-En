@@ -1,0 +1,35 @@
+<section class="gallery py-section">
+  <div class="container-fluid">
+    <h2 class="section-title">Our Gallery</h2>
+    <div class="underline"></div>
+
+    <div class="masonry-grid">
+      <div *ngFor="let image of images" 
+           class="masonry-item"
+           [class.tall]="image.size === 'tall'"
+           [class.wide]="image.size === 'wide'"
+           (click)="openLightbox(image)">
+        <img [src]="image.src" [alt]="image.alt" class="img-fluid">
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div *ngIf="selectedImage" class="lightbox" (click)="closeLightbox()">
+    <div class="lightbox-content" (click)="$event.stopPropagation()">
+      <button class="lightbox-close" (click)="closeLightbox()" aria-label="Close">
+        <i class="pi pi-times"></i>
+      </button>
+      
+      <button class="lightbox-nav prev" (click)="prevImage()" aria-label="Previous">
+        <i class="pi pi-chevron-left"></i>
+      </button>
+      
+      <img [src]="selectedImage.src" [alt]="selectedImage.alt" class="lightbox-image">
+      
+      <button class="lightbox-nav next" (click)="nextImage()" aria-label="Next">
+        <i class="pi pi-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</section>

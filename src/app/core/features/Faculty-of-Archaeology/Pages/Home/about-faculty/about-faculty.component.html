@@ -1,0 +1,26 @@
+<section class="about-faculty py-section">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div class="about-image fade-in-element">
+          <img [src]="facultyImage" [alt]="aboutContent.title" class="img-fluid rounded-3">
+        </div>
+      </div>
+      
+      <div class="col-lg-6">
+        <div class="about-content fade-in-element">
+          <h2 class="about-title">{{ aboutContent.title }}</h2>
+          <div class="underline"></div>
+          
+          <p *ngFor="let paragraph of aboutContent.paragraphs" class="about-text">
+            {{ paragraph }}
+          </p>
+          
+          <a [href]="aboutContent.buttonLink" class="btn btn-primary-custom">
+            {{ aboutContent.buttonText }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

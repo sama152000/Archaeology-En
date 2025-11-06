@@ -1,0 +1,141 @@
+/* ===== About Faculty Section ===== */
+.about-faculty {
+  background: linear-gradient(135deg, #f8f5f0, #fff);
+  padding: 5rem 0;
+}
+
+/* ===== Container ===== */
+.about-faculty .container-fluid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ===== Image ===== */
+.about-image {
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.about-image:hover img {
+  transform: scale(1.1);
+}
+
+/* ===== Content ===== */
+.about-content {
+  padding-left: 3rem;
+}
+
+.about-title {
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.underline {
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #c59c6c;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== Text ===== */
+.about-text {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+
+/* ===== Button ===== */
+.btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(90deg, #c59c6c, #d2a85f);
+  color: #1b1a17;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 50px;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 15px rgba(197, 156, 108, 0.4);
+  margin-top: 1rem;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #d2a85f, #e7d3a6);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(249, 215, 126, 0.6);
+}
+
+/* ===== Fade In Animation ===== */
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.fade-in-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .about-content {
+    padding-left: 0;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .underline {
+    margin: 0 auto 1.5rem;
+  }
+
+  .about-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-faculty {
+    padding: 3rem 0;
+  }
+
+  .about-title {
+    font-size: 1.8rem;
+  }
+
+  .about-text {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-title {
+    font-size: 1.6rem;
+  }
+
+  .about-content {
+    padding: 0 1rem;
+  }
+}
