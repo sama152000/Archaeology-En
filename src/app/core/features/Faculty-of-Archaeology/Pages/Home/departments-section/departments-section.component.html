@@ -12,9 +12,9 @@
             [imageUrl]="department.image"
             [imageAlt]="department.name"
             [title]="department.name"
-            [description]="department.description"
+            [description]="(department.description || []).join(' ')"
             imageHeight="250px">
-            <a [href]="department.link" class="btn btn-primary-custom btn-small">Learn More</a>
+            <a [routerLink]="['/departments', department.id]" class="btn btn-primary-custom btn-small">Learn More</a>
           </app-card>
         </div>
       </div>

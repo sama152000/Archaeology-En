@@ -1,0 +1,31 @@
+/* department-about.component.css */
+.hod-card {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: #fdf8e4;
+  border: 2px solid #d4af37;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.hod-card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #d4af37;
+}
+
+.hod-info h3 { font-size: 1.3rem; color: #1e2a47; margin-bottom: 0.3rem; }
+.title { color: #d4af37; font-weight: bold; margin-bottom: 0.8rem; }
+.quote { font-style: italic; color: #555; }
+
+.about-dept-text p {
+  margin-bottom: 1.2rem;
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.8;
+}

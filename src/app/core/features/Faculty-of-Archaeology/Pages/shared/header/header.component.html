@@ -1,7 +1,7 @@
 <header class="site-header">
   <div class="container-fluid header-container">
     <div class="logo-left">
-      <a href="/">
+      <a [routerLink]="['/home']">
         <div class="sun-logo">
           <img src="./assets/arc-logo.png" alt="Faculty of Archaeology" />
           <div class="sun-glow"></div>
@@ -15,7 +15,8 @@
         <li *ngFor="let item of menuItems" 
             [class.has-submenu]="item.hasSubmenu"
             [class.active]="item.active">
-          <a [href]="item.link || '#'" 
+          <a [routerLink]="item.link" 
+             [routerLinkActive]="['active']"
              [class.active]="item.active"
              (click)="!item.hasSubmenu && closeMenu()">
             {{ item.label }}
@@ -23,7 +24,9 @@
           </a>
           <ul *ngIf="item.hasSubmenu" class="submenu">
             <li *ngFor="let subItem of item.submenu">
-              <a [href]="subItem.link" (click)="closeMenu()">{{ subItem.label }}</a>
+              <a [routerLink]="subItem.link" 
+                 [routerLinkActive]="['active']"
+                 (click)="closeMenu()">{{ subItem.label }}</a>
             </li>
           </ul>
         </li>

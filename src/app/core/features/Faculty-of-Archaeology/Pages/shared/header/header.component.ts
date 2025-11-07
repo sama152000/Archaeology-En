@@ -14,25 +14,26 @@ export class HeaderComponent implements OnInit {
   isMenuOpen = false;
 
   menuItems = [
-    { label: 'Home', link: '/', active: true },
+    { label: 'Home', link: '/home', active: true },
     {
       label: 'About',
       hasSubmenu: true,
       submenu: [
-        { label: "Dean's Word", link: '/dean-word' },
-        { label: 'Vision & Mission', link: '/mission' },
-        { label: 'History', link: '/history' },
-        { label: 'Administrative Structure', link: '/admin' },
-        { label: 'Strategic Plan', link: '/strategic-plan' }
+        { label: "Dean's Word", link: '/about/dean-message' },
+        { label: 'Vision & Mission', link: '/about/vision' },
+        { label: 'History', link: '/about/history' },
+        { label: 'Objectives', link: '/about/objectives' },
+        { label: 'Administrative Structure', link: '/about/administrative' },
+        { label: 'Strategic Plan', link: '/about/strategic' }
       ]
     },
     {
       label: 'Departments',
       hasSubmenu: true,
       submenu: [
-        { label: 'Egyptology', link: '/departments/egyptology' },
-        { label: 'Restoration', link: '/departments/restoration' },
-        { label: 'Islamic Archaeology', link: '/departments/islamic' }
+        { label: 'Egyptology', link: '/departments/1' },
+        { label: 'Restoration', link: '/departments/2' },
+        { label: 'Islamic Archaeology', link: '/departments/3' }
       ]
     },
     { label: 'Centers', link: '/centers' },

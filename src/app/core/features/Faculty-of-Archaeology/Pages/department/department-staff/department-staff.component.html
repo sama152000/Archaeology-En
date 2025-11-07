@@ -1,0 +1,13 @@
+<h2>Academic Staff — {{ department?.name }}</h2>
+<p class="intro-text">
+  The department is proud of its distinguished academic staff who contribute to both teaching and research.
+</p>
+
+<div class="staff-grid">
+  <div class="staff-card" *ngFor="let member of department?.staff">
+    <img [src]="member.image" [alt]="member.name" />
+    <h3>{{ member.name }}</h3>
+    <p class="position">{{ member.position }}</p>
+    <p class="email"><i class="fa-solid fa-envelope"></i> {{ member.email }}</p>
+  </div>
+</div>

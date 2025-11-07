@@ -1,0 +1,16 @@
+<div *ngIf="department">
+  <h2>{{ department.name }}</h2>
+
+  <div class="hod-card">
+    <img [src]="department.hod.image" [alt]="department.hod.name" />
+    <div class="hod-info">
+      <h3>{{ department.hod.name }}</h3>
+      <p class="title">{{ department.hod.title }}</p>
+      <p class="quote" *ngIf="department.hod.quote">"{{ department.hod.quote }}"</p>
+    </div>
+  </div>
+
+  <div class="about-dept-text">
+    <p *ngFor="let para of department.description" [innerHTML]="para"></p>
+  </div>
+</div>

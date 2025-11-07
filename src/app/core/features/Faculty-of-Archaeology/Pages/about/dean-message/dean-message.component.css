@@ -1,0 +1,249 @@
+.body{
+      background: linear-gradient(135deg, #F8F6F2, #F8F6F2) !important;
+
+}
+
+/* ===== Dean's Message Section ===== */
+.dean-content h2 {
+  color: #2b2410;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.underline {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, #c59c6c, #b68b5f);
+  margin: 0 auto 3rem;
+  border-radius: 2px;
+}
+
+/* ===== Dean Profile Card ===== */
+.dean-profile {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding: 2rem;
+ 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dean-profile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(197, 156, 108, 0.2);
+}
+
+/* ===== Dean Image ===== */
+.dean-image {
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.dean-image img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.4s ease;
+}
+
+.dean-image:hover img {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.dean-image:hover .image-overlay {
+  opacity: 1;
+}
+
+/* ===== Dean Info ===== */
+.dean-info h3 {
+  font-size: 1.8rem;
+  color: #2b2410;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.dean-title {
+  font-size: 1.2rem;
+  color: #c59c6c;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* ===== Message Text ===== */
+.dean-text {
+  background: white;
+  padding: 3rem;
+ 
+  position: relative;
+}
+
+.message-content {
+  margin-bottom: 3rem;
+}
+
+.message-paragraph {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.message-paragraph::before {
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 6px;
+  height: 6px;
+}
+
+/* ===== Signature ===== */
+.signature-section {
+  border-top: 2px solid #f0f0f0;
+  padding-top: 2rem;
+  text-align: right;
+}
+
+.signature {
+  font-size: 1.1rem;
+  color: #2b2410;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== Fade In Animation ===== */
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 992px) {
+  .dean-content h2 {
+    font-size: 2.2rem;
+  }
+  
+  .dean-profile {
+    gap: 1.5rem;
+    padding: 1.8rem;
+  }
+  
+  .dean-image img {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .dean-info h3 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dean-profile {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+  
+  .dean-image img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .dean-content h2 {
+    font-size: 2rem;
+  }
+  
+  .dean-text {
+    padding: 2rem;
+  }
+  
+  .message-paragraph {
+    font-size: 1rem;
+    padding-left: 1.2rem;
+    text-align: left;
+  }
+  
+  .signature-section {
+    text-align: center;
+  }
+  
+  .underline {
+    margin: 0 auto 2.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .dean-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .dean-image img {
+    width: 130px;
+    height: 130px;
+  }
+  
+  .dean-info h3 {
+    font-size: 1.4rem;
+  }
+  
+  .dean-text {
+    padding: 1.5rem;
+  }
+  
+  .message-paragraph {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  
+  .signature {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dean-profile {
+    padding: 1.2rem;
+  }
+  
+  .dean-text {
+    padding: 1.2rem;
+  }
+  
+  .message-paragraph::before {
+    width: 5px;
+    height: 5px;
+    top: 0.5rem;
+  }
+}

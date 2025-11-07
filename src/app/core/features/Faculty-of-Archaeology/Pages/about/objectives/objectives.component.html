@@ -1,0 +1,21 @@
+<div class="fade-in-element">
+  <h2>Our Objectives</h2>
+  <div class="underline"></div>
+  
+  <p class="intro-text">
+    The Faculty of Archaeology at Luxor University is committed to achieving excellence through these core objectives that guide our academic and research endeavors.
+  </p>
+
+  <div class="objectives-grid">
+    <div class="objective-card" *ngFor="let objective of objectives; let i = index" 
+         [style.animation-delay.ms]="i * 100">
+      <div class="objective-icon">
+        <i [class]="objective.icon"></i>
+      </div>
+      <div class="objective-content">
+        <h3>{{ objective.title }}</h3>
+        <p>{{ objective.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>

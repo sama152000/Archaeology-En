@@ -1,0 +1,32 @@
+<section class="vision-mission-section">
+  <div class="vision-mission-content">
+    <h2>Vision & Mission</h2>
+    <span class="underline"></span>
+
+    <div class="loading-state" *ngIf="isLoading">
+      Loading vision and mission...
+    </div>
+
+    <div class="content-grid" *ngIf="!isLoading && visionMission">
+      <!-- Vision Card -->
+      <div class="content-card">
+        <div class="card-icon">
+          <i [class]="visionMission.vision.icon"></i>
+        </div>
+        <h4>{{ visionMission.vision.title }}</h4>
+        <p>{{ visionMission.vision.description }}</p>
+      </div>
+    </div>
+
+    <div class="content-grid" *ngIf="!isLoading && visionMission">
+      <!-- Mission Card -->
+      <div class="content-card">
+        <div class="card-icon">
+          <i [class]="visionMission.mission.icon"></i>
+        </div>
+        <h4>{{ visionMission.mission.title }}</h4>
+        <p>{{ visionMission.mission.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
