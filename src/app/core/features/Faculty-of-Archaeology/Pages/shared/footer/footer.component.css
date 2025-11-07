@@ -26,8 +26,8 @@
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  border-right: 4px solid #c59c6c;
-  padding-right: 12px;
+  border-left: 4px solid #c59c6c;
+  padding-left: 12px;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -67,12 +67,11 @@
   display: flex;
   align-items: center;
   font-size: 0.95rem;
-  direction: rtl;
 }
 
 .contact-item i {
   color: #c59c6c;
-  margin-left: 8px;
+  margin-right: 8px;
   width: 18px;
   flex-shrink: 0;
 }
@@ -136,7 +135,7 @@
   color: #aaa;
   text-decoration: none;
   font-size: 0.9rem;
-  margin-left: 1.5rem;
+  margin-right: 1.5rem;
   transition: color 0.3s ease;
 }
 

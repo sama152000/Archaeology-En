@@ -26,7 +26,7 @@ export class UpcomingEventsComponent {
       schedule: 'Friday to Sunday: 10 AM – 5 PM',
       date: '26',
       month: 'May',
-      image: 'https://images.pexels.com/photos/262780/pexels-photo-262780.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+      image: './assets/lux11.jpg',
       link: '/events/egypt-exhibition'
     },
     {
@@ -35,7 +35,7 @@ export class UpcomingEventsComponent {
       schedule: 'Monday: 2 PM – 6 PM',
       date: '12',
       month: 'Jun',
-      image: 'https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+      image: './assets/lux12.jpg',
       link: '/events/pharaoh-seminar'
     },
     {
@@ -44,7 +44,7 @@ export class UpcomingEventsComponent {
       schedule: 'Wednesday to Friday: 9 AM – 4 PM',
       date: '28',
       month: 'Jun',
-      image: 'https://images.pexels.com/photos/71241/pexels-photo-71241.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+      image: './assets/lux13.jpg',
       link: '/events/hieroglyph-workshop'
     }
   ];

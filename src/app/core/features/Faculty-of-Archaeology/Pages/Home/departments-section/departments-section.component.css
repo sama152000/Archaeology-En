@@ -24,6 +24,15 @@
   z-index: 2;
 }
 
+.title{
+  color: #edd5a1;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+/* 
 /* ===== Section Title ===== */
 .section-title {
   color: #edd5a1;
@@ -32,8 +41,9 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 1rem;
-  font-family: "Cinzel", serif;
-}
+      font-family: 'IBM Plex Sans' !important;
+
+} 
 
 /* ===== Underline ===== */
 .underline {
@@ -105,19 +115,33 @@ app-card .card-body {
 }
 
 app-card .card-title {
-  color: #2c2410;
-  font-size: 1.3rem;
-  margin-bottom: 0.7rem;
-  font-weight: 600;
+    color: #fff;
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+    font-weight: 600;
 }
 
 app-card .card-text {
-  color: #555;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  flex-grow: 1;
+    color: #ffffff !important;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    flex-grow: 1;
 }
+
+app-card .text-muted {
+    color: #fff !important;
+}
+
+/* Ensure styles penetrate into the app-card child component (overrides from _utilities.scss)
+   ::ng-deep is used here to target the card internals from this component's stylesheet.
+   This specifically forces titles, body text and muted text inside app-card to white. */
+:host ::ng-deep app-card .card-title,
+:host ::ng-deep app-card .card-text,
+:host ::ng-deep app-card .text-muted {
+  color: #fff !important;
+}
+
 
 app-card .btn {
   align-self: flex-start;
@@ -138,6 +162,10 @@ app-card .btn:hover {
   background: linear-gradient(90deg, #d2a85f, #e7d3a6);
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(249, 215, 126, 0.5);
+}
+.text-muted {
+    --bs-text-opacity: 1;
+    color: rgb(246 251 255 / 91%) !important;
 }
 
 /* ===== Responsive ===== */

@@ -41,10 +41,10 @@
 }
 
 .sun-logo img {
-  width: 60%;
-  height: 60%;
+  width: 80%;
+  height: 80%;
   border-radius: 50%;
-  object-fit: cover;
+  object-fit: fill;
   z-index: 2;
   filter: brightness(1.1) contrast(1.2);
 }
@@ -77,11 +77,10 @@
 .site-title {
   color: #f6e9c6;
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 1px;
   text-transform: uppercase;
   margin: 0;
-  font-family: "Cinzel", serif;
 }
 
 /* ===== Navigation ===== */

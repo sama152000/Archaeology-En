@@ -24,21 +24,21 @@ export class FunFactsComponent implements OnInit, OnDestroy {
     {
       id: 1,
       icon: 'pi pi-users',
-      count: 4550,
+      count: 500,
       label: 'Students',
       currentCount: 0
     },
     {
       id: 2,
       icon: 'pi pi-trophy',
-      count: 350,
+      count: 0,
       label: 'Awards Won',
       currentCount: 0
     },
     {
       id: 3,
       icon: 'pi pi-graduation-cap',
-      count: 120,
+      count: 20,
       label: 'Expert Staff',
       currentCount: 0
     }

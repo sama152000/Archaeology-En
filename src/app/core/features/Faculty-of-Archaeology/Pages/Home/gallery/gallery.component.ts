@@ -19,46 +19,36 @@ export class GalleryComponent {
   images: GalleryImage[] = [
     {
       id: 1,
-      src: 'https://images.pexels.com/photos/71241/pexels-photo-71241.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+      src: './assets/lux4.jpg',
       alt: 'Temple of Luxor',
-      size: 'normal'
     },
-     {
-      id: 1,
-      src: 'https://images.pexels.com/photos/71241/pexels-photo-71241.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      alt: 'Temple of Luxor',
-      size: 'normal'
-    },
-     {
-      id: 1,
-      src: 'https://images.pexels.com/photos/71241/pexels-photo-71241.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      alt: 'Temple of Luxor',
-      size: 'normal'
-    },
+    
+     
     {
       id: 2,
-      src: 'https://images.pexels.com/photos/262780/pexels-photo-262780.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop',
+      src: './assets/lux5.jpg',
       alt: 'Ancient Sculpture',
-      size: 'tall'
     },
     {
       id: 3,
-      src: 'https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg?auto=compress&cs=tinysrgb&w=800&h=300&fit=crop',
+      src: './assets/lux6.jpg',
       alt: 'Hieroglyphs',
-      size: 'wide'
     },
     {
       id: 4,
-      src: 'https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+      src: './assets/lux7.jpg',
       alt: 'Pharaoh Statue',
-      size: 'normal'
     },
-    {
+     {
+      id: 5,
+      src: './assets/lux10.jpg',
+      alt: 'Pharaoh Statue',
+    },
+  {
       id: 6,
-      src: 'https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop',
-      alt: 'Pyramids',
-      size: 'normal'
-    }
+      src: './assets/lux9.jpg',
+      alt: 'Pharaoh Statue',
+    },
   ];
 
   selectedImage: GalleryImage | null = null;

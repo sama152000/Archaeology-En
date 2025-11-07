@@ -1,6 +1,6 @@
 /* ===== Gallery Section ===== */
 .gallery {
-  background: linear-gradient(135deg, #f7f3ed 0%, #e8e1d4 50%, #d9d0c2 100%);
+  background: linear-gradient(135deg, #fdfaf5 0%, #DFCBA0 50%, #2C2511 100%);
   padding: 5rem 0;
   text-align: center;
   position: relative;
@@ -14,14 +14,13 @@
 }
 
 /* ===== Section Title ===== */
-.section-title {
+.title {
   color: #2c2410;
   font-size: 2rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 1rem;
-  font-family: "Cinzel", serif;
 }
 
 /* ===== Underline ===== */
@@ -34,21 +33,23 @@
   margin: 0 auto 3rem;
 }
 
-/* ===== Masonry Grid ===== */
+/* ===== Gallery Grid (3x2) ===== */
 .masonry-grid {
-  column-count: 3;
-  column-gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
   margin-top: 2rem;
+  padding: 0 1rem;
 }
 
 .masonry-item {
-  break-inside: avoid;
-  margin-bottom: 1.5rem;
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: all 0.4s ease;
+  aspect-ratio: 4 / 3;
+  background: #fff;
 }
 
 .masonry-item:hover {
@@ -69,13 +70,12 @@
   filter: brightness(0.9);
 }
 
-/* Size Variants */
-.masonry-item.tall {
-  grid-row: span 2;
-}
-
+/* إلغاء أي تأثير للـ size (كل الكروت نفس الحجم) */
+.masonry-item.tall,
 .masonry-item.wide {
-  grid-column: span 2;
+  grid-row: auto;
+  grid-column: auto;
+  aspect-ratio: 4 / 3;
 }
 
 /* ===== Lightbox ===== */
@@ -157,8 +157,8 @@
 
 /* ===== Animation ===== */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 .lightbox.open .lightbox-content {
@@ -168,8 +168,8 @@
 /* ===== Responsive ===== */
 @media (max-width: 992px) {
   .masonry-grid {
-    column-count: 2;
-    column-gap: 1.2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
   }
 
   .lightbox-close {
@@ -185,7 +185,7 @@
     padding: 3rem 0;
   }
 
-  .section-title {
+  .title {
     font-size: 1.8rem;
   }
 
@@ -194,7 +194,11 @@
   }
 
   .masonry-grid {
-    column-count: 2;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .lightbox-nav {
@@ -208,11 +212,7 @@
 }
 
 @media (max-width: 576px) {
-  .masonry-grid {
-    column-count: 1;
-  }
-
-  .section-title {
+  .title {
     font-size: 1.6rem;
   }
 
@@ -225,20 +225,10 @@
   }
 
   .lightbox-nav {
-    display: none; /* مخفي في الموبايل - swipe بديل */
+    display: none;
   }
 
   .lightbox-image {
     border-radius: 8px;
-  }
-}
-
-@media (max-width: 480px) {
-  .masonry-item {
-    margin-bottom: 1rem;
-  }
-
-  .lightbox-content {
-    padding: 1rem;
   }
 }

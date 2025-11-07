@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./about-faculty.component.css']
 })
 export class AboutFacultyComponent {
-  facultyImage = 'https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop';
+  facultyImage = './assets/faculty.png';
   
   aboutContent = {
     title: 'About Our Faculty',

@@ -40,7 +40,7 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
     },
     {
       id: 3,
-      image: 'https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
+      image: './assets/lux2.jpg',
       title: 'Visit the Museum',
       description: 'See treasures that tell Egypt\'s timeless story.',
       buttonText: 'Get Tickets',

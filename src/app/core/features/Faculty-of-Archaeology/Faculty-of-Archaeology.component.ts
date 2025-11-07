@@ -9,7 +9,7 @@ import { FooterComponent } from "./Pages/shared/footer/footer.component";
   templateUrl: './Faculty-of-Archaeology.component.html',
   styleUrls: ['./Faculty-of-Archaeology.component.css'],
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent]})
+  imports: [RouterOutlet,]})
 export class FacultyOfArchaeologyComponent implements OnInit {
 
   constructor() { }
