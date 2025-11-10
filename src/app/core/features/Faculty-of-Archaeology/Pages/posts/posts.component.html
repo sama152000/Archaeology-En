@@ -1,0 +1,82 @@
+
+<!-- ======= Posts Section ======= -->
+<section class="about-section">
+  <div class="container">
+    <div class="about-layout">
+      <!-- Sidebar -->
+      <aside class="about-sidebar">
+        <h3>News & Updates</h3>
+        <ul>
+          <li [class.active]="isActive('news')">
+            <a [routerLink]="['/posts', 'news']">All News</a>
+          </li>
+          <li [class.active]="isActive('events')">
+            <a [routerLink]="['/posts', 'events']">Events</a>
+          </li>
+          <li [class.active]="isActive('announcements')">
+            <a [routerLink]="['/posts', 'announcements']">Announcements</a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="department-content fade-in-element" [class.visible]="isVisible">
+        <h2>{{ getTitle() }}</h2>
+        <p class="intro-text">
+          {{ getIntroText() }}
+        </p>
+
+        <div class="blog-grid">
+          <!-- News Items -->
+          <ng-container *ngIf="currentType === 'news'">
+            <article class="blog-card" *ngFor="let item of newsItems" (click)="navigateToDetails(item)">
+              <img [src]="item.image" [alt]="item.title" />
+              <div class="blog-info">
+                <h3><a [routerLink]="['/posts', 'news', item.id]">{{ item.title }}</a></h3>
+                <p class="blog-date">
+                  <i class="pi pi-calendar"></i> {{ item.date }}
+                </p>
+                <p class="blog-excerpt">{{ item.excerpt }}</p>
+                <a [routerLink]="['/posts', 'news', item.id]" class="read-more">Read More →</a>
+              </div>
+            </article>
+          </ng-container>
+
+          <!-- Events -->
+          <ng-container *ngIf="currentType === 'events'">
+            <article class="blog-card" *ngFor="let item of events" (click)="navigateToDetails(item)">
+              <img [src]="item.image" [alt]="item.title" />
+              <div class="blog-info">
+                <h3><a [routerLink]="['/posts', 'events', item.id]">{{ item.title }}</a></h3>
+                <p class="blog-date">
+                  <i class="pi pi-calendar"></i> {{ item.date }} {{ item.month }}
+                </p>
+                <p class="blog-excerpt">{{ item.schedule }}</p>
+                <a [routerLink]="['/posts', 'events', item.id]" class="read-more">Read More →</a>
+              </div>
+            </article>
+          </ng-container>
+
+          <!-- Announcements -->
+          <ng-container *ngIf="currentType === 'announcements'">
+            <article class="blog-card" *ngFor="let item of announcements" (click)="navigateToDetails(item)">
+              <img [src]="item.image" [alt]="item.title" />
+              <div class="blog-info">
+                <h3><a [routerLink]="['/posts', 'announcements', item.id]">{{ item.title }}</a></h3>
+                <p class="blog-date">
+                  <i class="pi pi-calendar"></i> {{ item.date }}
+                  <span *ngIf="item.priority" class="priority-badge priority-{{ item.priority }}">
+                    {{ item.priority | titlecase }}
+                  </span>
+                </p>
+                <p class="blog-excerpt">{{ item.excerpt }}</p>
+                <a [routerLink]="['/posts', 'announcements', item.id]" class="read-more">Read More →</a>
+              </div>
+            </article>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

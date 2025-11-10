@@ -12,7 +12,7 @@
             [imageUrl]="department.image"
             [imageAlt]="department.name"
             [title]="department.name"
-            [description]="(department.description || []).join(' ')"
+            [description]="department.shortDescription"
             imageHeight="250px">
             <a [routerLink]="['/departments', department.id]" class="btn btn-primary-custom btn-small">Learn More</a>
           </app-card>

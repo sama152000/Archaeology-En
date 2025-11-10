@@ -18,6 +18,7 @@ export interface Department {
   name: string;
   slug: string; // للـ routing
   description: string[];
+  shortDescription: string;
   image: string;
   hod: {
     name: string;

@@ -1,3 +1,0 @@
-- Fix DepartmentAboutComponent to fetch department data instead of using @Input
-- Fix DepartmentStaffComponent to fetch department data instead of using @Input
-- Test the department routes to ensure child components appear correctly

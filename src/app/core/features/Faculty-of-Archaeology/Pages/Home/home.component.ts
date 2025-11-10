@@ -17,7 +17,6 @@ import { FooterComponent } from "../shared/footer/footer.component";
   standalone: true,
   imports: [
     CommonModule,
-    HeaderComponent,
     HeroSliderComponent,
     AboutFacultyComponent,
     DepartmentsSectionComponent,
@@ -25,7 +24,6 @@ import { FooterComponent } from "../shared/footer/footer.component";
     UpcomingEventsComponent,
     GalleryComponent,
     FunFactsComponent,
-    FooterComponent
 ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']

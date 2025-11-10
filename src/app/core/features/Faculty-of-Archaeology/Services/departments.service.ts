@@ -34,6 +34,7 @@ export class DepartmentsService {
         ' is one of the leading departments at the Faculty of Archaeology, focusing on the study of ancient Egyptian civilization — its language, history, art, religion, and culture.',
         'Our faculty members are recognized experts in their fields and collaborate with national and international institutions to promote the documentation and preservation of Egypt’s archaeological treasures.'
       ],
+      shortDescription: 'Leading department focusing on ancient Egyptian civilization, language, history, art, religion, and culture.',
       image: '/assets/dep1.jpg',
       hod: {
         name: 'Prof. Dr. Noura El-Masry',
@@ -56,6 +57,7 @@ export class DepartmentsService {
         'The Restoration Department specializes in the conservation and restoration of archaeological artifacts, ensuring their longevity for future generations.',
         'Students gain hands-on experience with advanced techniques in material analysis, conservation ethics, and museum preservation.'
       ],
+      shortDescription: 'Specializes in conservation and restoration of archaeological artifacts for future generations.',
       image: '/assets/dep2.jpg',
       hod: {
         name: 'Prof. Dr. Omar Farouk',
@@ -75,6 +77,7 @@ export class DepartmentsService {
         'Dedicated to the study of Islamic art, architecture, and material culture from the early Islamic period to the Ottoman era.',
         'The department conducts field surveys, excavation projects, and publishes research on Islamic heritage sites across Egypt and the region.'
       ],
+      shortDescription: 'Studies Islamic art, architecture, and material culture from early Islamic to Ottoman era.',
       image: '/assets/dep3.jpg',
       hod: {
         name: 'Prof. Dr. Aisha Mahmoud',
