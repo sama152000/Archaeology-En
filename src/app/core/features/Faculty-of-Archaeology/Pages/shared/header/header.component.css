@@ -10,7 +10,7 @@
 }
 
 .header-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -236,5 +236,40 @@
 
   .nav-toggle {
     display: block;
+  }
+}
+
+/* ===== Arabic Button Style ===== */
+.arabic-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  margin-left: 12px;
+  background-color: transparent;
+  border: 2px solid #d2a85f;
+  border-radius: 20px;
+  color: #f6e9c6;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  user-select: none;
+}
+
+.arabic-button:hover,
+.arabic-button:focus {
+  background-color: #d2a85f;
+  color: #2b2410;
+  outline: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .arabic-button {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    margin-left: 8px;
   }
 }

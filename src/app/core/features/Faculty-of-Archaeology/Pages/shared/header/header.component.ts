@@ -38,7 +38,8 @@ export class HeaderComponent implements OnInit {
     },
     { label: 'Centers', link: '/centers' },
     { label: 'Services', link: '/services' },
-    { label: 'News', link: '/posts/news' }
+    { label: 'News', link: '/posts/news' },
+
   ];
 
   ngOnInit() {}

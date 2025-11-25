@@ -7,14 +7,24 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
     <div class="card-custom h-100" [class]="customClass">
-      <div *ngIf="imageUrl" class="card-image">
-        <img [src]="imageUrl" [alt]="imageAlt" class="w-100" [style.height]="imageHeight" style="object-fit: cover;">
-        <div *ngIf="showOverlay" class="overlay"></div>
-      </div>
+      @if (imageUrl) {
+        <div class="card-image">
+          <img [src]="imageUrl" [alt]="imageAlt" class="w-100" [style.height]="imageHeight" style="object-fit: cover;">
+          @if (showOverlay) {
+            <div class="overlay"></div>
+          }
+        </div>
+      }
       <div class="card-body p-3">
-        <div *ngIf="badge" class="badge bg-primary-custom mb-2">{{ badge }}</div>
-        <h5 *ngIf="title" class="card-title">{{ title }}</h5>
-        <p *ngIf="description" class="card-text text-muted">{{ description }}</p>
+        @if (badge) {
+          <div class="badge bg-primary-custom mb-2">{{ badge }}</div>
+        }
+        @if (title) {
+          <h5 class="card-title">{{ title }}</h5>
+        }
+        @if (description) {
+          <p class="card-text text-muted">{{ description }}</p>
+        }
         <ng-content></ng-content>
       </div>
     </div>

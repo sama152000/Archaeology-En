@@ -8,7 +8,21 @@
         </div>
       </a>
       <h1 class="site-title">Faculty of Archaeology</h1>
+      <!-- Arabic language button -->
+      <a 
+        href="https://archaeology-ar.vercel.app/home" 
+        target="_blank" 
+        rel="noopener"
+        class="arabic-button"
+        aria-label="Switch to Arabic Site"
+      >
+        عربي
+      </a>
     </div>
+
+    <button class="nav-toggle" aria-label="Toggle menu" (click)="toggleMenu()">
+      &#9776;
+    </button>
 
     <nav class="site-nav" [class.active]="isMenuOpen">
       <ul class="main-menu">
@@ -32,12 +46,5 @@
         </li>
       </ul>
     </nav>
-
-    <button class="nav-toggle" 
-            (click)="toggleMenu()" 
-            [attr.aria-expanded]="isMenuOpen"
-            aria-label="Toggle navigation">
-      ☰
-    </button>
   </div>
 </header>
