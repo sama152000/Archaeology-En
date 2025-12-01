@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { CardComponent } from '../../shared/card/card.component';
 import { NewsService } from '../../../Services/news.service';
 import { News } from '../../../model/news.model';
@@ -7,7 +8,7 @@ import { News } from '../../../model/news.model';
 @Component({
   selector: 'app-latest-news',
   standalone: true,
-  imports: [CommonModule, CardComponent],
+  imports: [CommonModule, RouterModule, CardComponent],
   templateUrl: './latest-news.component.html',
   styleUrls: ['./latest-news.component.css']
 })

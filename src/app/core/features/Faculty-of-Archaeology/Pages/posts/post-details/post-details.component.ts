@@ -26,6 +26,9 @@ export class PostDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // Scroll to top when component loads
+    window.scrollTo(0, 0);
+
     this.route.params.subscribe(params => {
       this.postType = params['type'];
       this.postId = +params['id'];

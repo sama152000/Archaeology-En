@@ -150,7 +150,7 @@
 
 .submenu li a {
   display: block;
-  color: white;
+  color: #2D2611;
   padding: 14px 22px;
   font-size: 0.95rem;
   line-height: 1.4;
@@ -201,6 +201,12 @@
   .header-container {
     padding: 0 1rem;
   }
+
+  
+.submenu li a {
+  color: white;
+
+}
 
   .site-nav {
     display: none;

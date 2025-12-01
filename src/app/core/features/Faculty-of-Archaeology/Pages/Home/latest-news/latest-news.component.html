@@ -36,7 +36,7 @@
             [description]="news.excerpt"
             [badge]="news.date"
             imageHeight="220px">
-            <a [href]="news.link" class="text-primary-custom fw-semibold text-decoration-none">
+            <a [routerLink]="['../posts', 'news', news.id]" class="text-primary-custom fw-semibold text-decoration-none">
               Read More →
             </a>
           </app-card>
