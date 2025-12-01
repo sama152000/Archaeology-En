@@ -16,7 +16,7 @@
           <div class="event-info">
             <h3 class="event-title">{{ event.title }}</h3>
             <p class="event-schedule">{{ event.schedule }}</p>
-            <a [href]="event.link" class="btn btn-primary-custom btn-small">Read More</a>
+            <a [routerLink]="['../posts', 'events', event.id]" class="btn btn-primary-custom btn-small">Read More</a>
           </div>
         </div>
       </div>
