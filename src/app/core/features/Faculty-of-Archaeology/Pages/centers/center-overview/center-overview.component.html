@@ -1,0 +1,34 @@
+<div *ngIf="center">
+  <div class="content-header">
+    <h2>{{ center.name }}</h2>
+    <div class="underline"></div>
+  </div>
+
+  <div class="profile-card">
+    <div class="profile-image">
+      <img [src]="center.director.image" [alt]="center.director.name" />
+    </div>
+    <div class="profile-info">
+      <h3>{{ center.director.name }}</h3>
+      <p class="title">{{ center.director.title }}</p>
+      <p class="quote" *ngIf="center.director.quote">"{{ center.director.quote }}"</p>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h3>About the Center</h3>
+    <p *ngFor="let para of center.description">{{ para }}</p>
+  </div>
+
+  <div class="content-section">
+    <h3>Goals & Objectives</h3>
+    <ul>
+      <li *ngFor="let goal of center.goals">{{ goal }}</li>
+    </ul>
+  </div>
+
+  <div class="content-section">
+    <h3>History</h3>
+    <p>{{ center.history }}</p>
+  </div>
+</div>

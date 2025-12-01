@@ -1,0 +1,43 @@
+<div *ngIf="service">
+  <div class="content-header">
+    <h2>Contact Information</h2>
+    <div class="underline"></div>
+  </div>
+
+  <div class="content-section">
+    <h3>{{ service.name }}</h3>
+    <p>For inquiries about this service, consultations, or to schedule appointments, please contact us using the information below.</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="info-card">
+      <h4><i class="fas fa-envelope"></i> Email</h4>
+      <p>{{ service.contactInfo.email }}</p>
+    </div>
+
+    <div class="info-card">
+      <h4><i class="fas fa-phone"></i> Phone</h4>
+      <p>{{ service.contactInfo.phone }}</p>
+    </div>
+
+    <div class="info-card">
+      <h4><i class="fas fa-map-marker-alt"></i> Office Location</h4>
+      <p>{{ service.contactInfo.office }}</p>
+    </div>
+
+    <div class="info-card">
+      <h4><i class="fas fa-user"></i> Service Manager</h4>
+      <p>{{ service.manager.name }}<br>{{ service.manager.title }}</p>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h3>Response Time</h3>
+    <p>We typically respond to inquiries within 24-48 hours during business days. For urgent matters, please call our office directly.</p>
+  </div>
+
+  <div class="content-section">
+    <h3>Business Hours</h3>
+    <p>Sunday - Thursday: 8:00 AM - 4:00 PM<br>Saturday: 9:00 AM - 1:00 PM<br>Friday: Closed</p>
+  </div>
+</div>

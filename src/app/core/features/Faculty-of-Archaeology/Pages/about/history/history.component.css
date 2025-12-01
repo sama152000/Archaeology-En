@@ -1,0 +1,238 @@
+/* ===== History Component Styles ===== */
+h2 {
+  color: #2b2410;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.underline {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, #c59c6c, #b68b5f);
+  margin: 0 auto 3rem;
+  border-radius: 2px;
+}
+
+.intro-text {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loading-state {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+/* ===== Timeline Styles ===== */
+.history-timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.history-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(135deg, #c59c6c, #b68b5f);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 1fr 100px 1fr;
+  align-items: center;
+  margin-bottom: 4rem;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.timeline-item.reverse .timeline-content {
+  grid-column: 3;
+  text-align: left;
+}
+
+.timeline-item:not(.reverse) .timeline-content {
+  grid-column: 1;
+  text-align: right;
+}
+
+.timeline-line {
+  grid-column: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.timeline-dot {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #c59c6c, #b68b5f);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #fff, 0 0 0 8px #c59c6c;
+  position: relative;
+}
+
+.timeline-content {
+  max-width: 400px;
+}
+
+.timeline-year {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #c59c6c;
+  margin-bottom: 1rem;
+}
+
+.timeline-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.timeline-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  border-color: #c59c6c;
+}
+
+.timeline-image {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.timeline-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.timeline-image:hover img {
+  transform: scale(1.05);
+}
+
+.timeline-info h3 {
+  font-size: 1.4rem;
+  color: #2b2410;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.timeline-info p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== Animations ===== */
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 992px) {
+  .history-timeline::before {
+    left: 30px;
+  }
+  
+  .timeline-item {
+    grid-template-columns: 60px 1fr;
+    margin-bottom: 3rem;
+  }
+  
+  .timeline-item.reverse .timeline-content,
+  .timeline-item:not(.reverse) .timeline-content {
+    grid-column: 2;
+    text-align: left;
+    margin-left: 2rem;
+  }
+  
+  .timeline-line {
+    grid-column: 1;
+    justify-content: flex-start;
+    padding-left: 22px;
+  }
+  
+  .timeline-year {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .timeline-card {
+    padding: 1.5rem;
+  }
+  
+  .timeline-image {
+    height: 150px;
+  }
+  
+  .timeline-info h3 {
+    font-size: 1.2rem;
+  }
+  
+  .intro-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .underline {
+    width: 60px;
+    height: 3px;
+  }
+  
+  .timeline-card {
+    padding: 1.2rem;
+  }
+  
+  .timeline-year {
+    font-size: 1.4rem;
+  }
+  
+  .timeline-info h3 {
+    font-size: 1.1rem;
+  }
+  
+  .timeline-info p {
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,29 @@
+<div *ngIf="center">
+  <div class="content-header">
+    <h2>Activities & Programs</h2>
+    <div class="underline"></div>
+  </div>
+
+  <div class="content-section">
+    <h3>{{ center.name }} Activities</h3>
+    <p>Our center offers a wide range of activities and programs designed to advance our mission and serve the academic community.</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="info-card" *ngFor="let activity of center.activities">
+      <h4>{{ activity }}</h4>
+      <p>Comprehensive program designed to support research and educational goals in archaeological sciences.</p>
+    </div>
+  </div>
+
+  <div class="content-section mt-4">
+    <h3>Program Benefits</h3>
+    <ul>
+      <li>Access to cutting-edge research facilities</li>
+      <li>Collaboration with international partners</li>
+      <li>Professional development opportunities</li>
+      <li>State-of-the-art equipment and resources</li>
+      <li>Expert supervision and guidance</li>
+    </ul>
+  </div>
+</div>

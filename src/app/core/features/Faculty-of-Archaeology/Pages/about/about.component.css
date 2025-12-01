@@ -7,11 +7,27 @@
   padding: 60px 0;
 }
 
+/* Allow sticky sidebar to work by ensuring the section's overflow is visible */
+.about-section {
+  overflow: visible;
+}
+
 .about-sidebar {
   background: #f4f7fb;
   padding: 25px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Make the sidebar sticky and scrollable on larger screens */
+.about-sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 80px; /* offset to account for header height */
+  align-self: start; /* ensure it starts at top of the grid area */
+  max-height: calc(100vh - 140px); /* keep some spacing for header/footer */
+  overflow-y: auto; /* allow sidebar to scroll independently if content is long */
+  z-index: 5;
 }
 
 .about-sidebar h3 {
@@ -370,6 +386,9 @@
   .about-sidebar {
     margin-bottom: 30px;
     order: 2;
+    position: static; /* disable sticky on smaller screens */
+    max-height: none;
+    overflow: visible;
   }
   .dean-content, .vision-mission-content {
     order: 1;

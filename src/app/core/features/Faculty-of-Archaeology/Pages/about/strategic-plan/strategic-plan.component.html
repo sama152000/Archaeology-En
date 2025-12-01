@@ -1,0 +1,40 @@
+<div class="fade-in-element">
+  <h2>Strategic Plan</h2>
+  <div class="underline"></div>
+
+  <div class="loading-state" *ngIf="isLoading">
+    <p>Loading strategic plan...</p>
+  </div>
+
+  <div class="strategic-content" *ngIf="!isLoading && strategicPlan">
+    <div class="plan-header">
+      <h3>{{ strategicPlan.title }}</h3>
+      <div class="timeline-badge">{{ strategicPlan.timeline }}</div>
+      <p class="plan-description">{{ strategicPlan.description }}</p>
+    </div>
+
+    <div class="goals-section">
+      <h4>Strategic Goals</h4>
+      
+      <div class="goals-grid">
+        <div class="goal-card" *ngFor="let goal of strategicPlan.goals; let i = index"
+             [style.animation-delay.ms]="i * 150">
+          <div class="goal-icon">
+            <i [class]="goal.icon"></i>
+          </div>
+          <div class="goal-content">
+            <h5>{{ goal.title }}</h5>
+            <p class="goal-description">{{ goal.description }}</p>
+            
+            <div class="targets-section">
+              <h6>Key Targets:</h6>
+              <ul class="targets-list">
+                <li *ngFor="let target of goal.targets">{{ target }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

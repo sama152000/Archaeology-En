@@ -1,0 +1,38 @@
+<div *ngIf="center">
+  <div class="content-header">
+    <h2>Contact Information</h2>
+    <div class="underline"></div>
+  </div>
+
+  <div class="content-section">
+    <h3>{{ center.name }}</h3>
+    <p>For inquiries about our programs, research opportunities, and services, please contact us using the information below.</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="info-card">
+      <h4><i class="fas fa-envelope"></i> Email</h4>
+      <p>{{ center.contactInfo.email }}</p>
+    </div>
+
+    <div class="info-card">
+      <h4><i class="fas fa-phone"></i> Phone</h4>
+      <p>{{ center.contactInfo.phone }}</p>
+    </div>
+
+    <div class="info-card">
+      <h4><i class="fas fa-map-marker-alt"></i> Address</h4>
+      <p>{{ center.contactInfo.address }}</p>
+    </div>
+
+    <div class="info-card">
+      <h4><i class="fas fa-user"></i> Director</h4>
+      <p>{{ center.director.name }}<br>{{ center.director.title }}</p>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h3>Office Hours</h3>
+    <p>Sunday - Thursday: 8:00 AM - 4:00 PM<br>Saturday: 9:00 AM - 1:00 PM</p>
+  </div>
+</div>

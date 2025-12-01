@@ -1,0 +1,87 @@
+/* ===== Services Pages Layout ===== */
+.about-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  align-items: flex-start;
+  padding: 60px 0;
+}
+
+.about-sidebar {
+  background: #f4f7fb;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.about-sidebar h3 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: #00365e;
+  border-bottom: 2px solid #d2a85f;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.about-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-sidebar ul li {
+  margin-bottom: 12px;
+}
+
+.about-sidebar ul li a {
+  color: #00365e;
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.about-sidebar ul li a:hover,
+.about-sidebar ul li a.active {
+  background: #00416a;
+  color: #fff;
+}
+
+.about-content {
+  min-height: 400px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+  .about-sidebar {
+    margin-bottom: 30px;
+    order: 2;
+  }
+  .about-content {
+    order: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-layout {
+    padding: 40px 0;
+    gap: 30px;
+  }
+  .about-sidebar {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-layout {
+    padding: 30px 0;
+  }
+  .about-sidebar h3 {
+    font-size: 1.2rem;
+  }
+}

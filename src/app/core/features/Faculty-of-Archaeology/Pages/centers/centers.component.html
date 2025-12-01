@@ -1,0 +1,23 @@
+<section class="about-section">
+  <div class="container">
+    <div class="about-layout">
+      <!-- Sidebar -->
+      <aside class="about-sidebar">
+        <h3>Centers</h3>
+        <ul>
+          <li *ngFor="let section of centerSections">
+            <a [routerLink]="section.route" routerLinkActive="active" class="sidebar-link">
+              <i [class]="section.icon" *ngIf="section.icon"></i>
+              {{ section.title }}
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="about-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</section>

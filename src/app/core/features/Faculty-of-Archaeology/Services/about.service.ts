@@ -191,7 +191,7 @@ export class AboutService {
       id: 'dean',
       name: "Prof. Dr. Khaled Abdel-Naeem Mohamedin",
       title: "Dean of the Faculty",
-      image: "assets/ dean.png",
+      image: "./assets/dean.png",
       email: "dean@arch.luxor.edu.eg",
       office: "Administration Building - 3rd Floor",
       description: "Leading the faculty with over 20 years of experience in archaeological research and academic administration."
@@ -201,7 +201,7 @@ export class AboutService {
         id: 'vice-dean-academic',
         name: "Prof. Dr. Amira Hassan Mohamed",
         title: "Vice Dean for Academic Affairs",
-        image: "assets/vice-dean-1.jpg",
+        image: "/assets/icon.jpg",
         email: "academic@arch.luxor.edu.eg",
         office: "Administration Building - 2nd Floor"
       },
@@ -209,7 +209,7 @@ export class AboutService {
         id: 'vice-dean-postgrad',
         name: "Prof. Dr. Ahmed Mahmoud Ali",
         title: "Vice Dean for Postgraduate Studies",
-        image: "assets/vice-dean-2.jpg", 
+        image: "/assets/icon.jpg", 
         email: "postgrad@arch.luxor.edu.eg",
         office: "Administration Building - 2nd Floor"
       },
@@ -217,7 +217,7 @@ export class AboutService {
         id: 'vice-dean-community',
         name: "Assoc. Prof. Dr. Fatma Ibrahim",
         title: "Vice Dean for Community Service",
-        image: "assets/vice-dean-3.jpg",
+        image: "/assets/icon.jpg",
         email: "community@arch.luxor.edu.eg",
         office: "Administration Building - 1st Floor"
       }
@@ -227,7 +227,7 @@ export class AboutService {
         id: 'head-egyptology',
         name: "Prof. Dr. Mohamed Saleh",
         title: "Head of Egyptology Department",
-        image: "assets/head-1.jpg",
+        image: "/assets/icon.jpg",
         email: "egyptology@arch.luxor.edu.eg",
         office: "Egyptology Building - 2nd Floor"
       },
@@ -235,7 +235,7 @@ export class AboutService {
         id: 'head-islamic',
         name: "Prof. Dr. Nadia Farouk",
         title: "Head of Islamic Archaeology Department", 
-        image: "assets/head-2.jpg",
+        image: "/assets/icon.jpg",
         email: "islamic@arch.luxor.edu.eg",
         office: "Islamic Studies Building - 3rd Floor"
       },
@@ -243,7 +243,7 @@ export class AboutService {
         id: 'head-restoration',
         name: "Assoc. Prof. Dr. Hany Mostafa",
         title: "Head of Restoration Department",
-        image: "assets/head-3.jpg",
+        image: "/assets/icon.jpg",
         email: "restoration@arch.luxor.edu.eg",
         office: "Conservation Lab Building - 1st Floor"
       }

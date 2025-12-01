@@ -1,0 +1,34 @@
+<div *ngIf="sector">
+  <div class="content-header">
+    <h2>Current Projects</h2>
+    <div class="underline"></div>
+  </div>
+
+  <div class="content-section">
+    <h3>{{ sector.name }} Projects</h3>
+    <p>Our sector is actively engaged in multiple projects that advance our mission and contribute to the archaeological field.</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="info-card" *ngFor="let project of sector.projects">
+      <h4>{{ project }}</h4>
+      <p>This project represents a significant contribution to our sector's research and development goals, incorporating modern methodologies and international collaboration.</p>
+    </div>
+  </div>
+
+  <div class="content-section mt-4">
+    <h3>Project Impact</h3>
+    <ul>
+      <li>Enhanced research capabilities and methodologies</li>
+      <li>Strengthened international partnerships</li>
+      <li>Advanced student training and education</li>
+      <li>Significant contributions to archaeological knowledge</li>
+      <li>Innovation in field techniques and documentation</li>
+    </ul>
+  </div>
+
+  <div class="content-section">
+    <h3>Future Initiatives</h3>
+    <p>Our sector continues to develop new projects and initiatives that will further enhance our contribution to the archaeological community and support the faculty's mission of excellence in research and education.</p>
+  </div>
+</div>

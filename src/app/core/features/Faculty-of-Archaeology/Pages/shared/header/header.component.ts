@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NgIf, NgFor } from '@angular/common';
+import { HeaderService } from '../../../Services/header.service';
+import { MenuItem } from '../../../model/header.model';
 
 @Component({
   selector: 'app-header',
@@ -12,37 +14,15 @@ import { NgIf, NgFor } from '@angular/common';
 })
 export class HeaderComponent implements OnInit {
   isMenuOpen = false;
+  menuItems: MenuItem[] = [];
 
-  menuItems = [
-    { label: 'Home', link: '/home', active: true },
-    {
-      label: 'About',
-      hasSubmenu: true,
-      submenu: [
-        { label: "Dean's Word", link: '/about/dean-message' },
-        { label: 'Vision & Mission', link: '/about/vision' },
-        { label: 'History', link: '/about/history' },
-        { label: 'Objectives', link: '/about/objectives' },
-        { label: 'Administrative Structure', link: '/about/administrative' },
-        { label: 'Strategic Plan', link: '/about/strategic' }
-      ]
-    },
-    {
-      label: 'Departments',
-      hasSubmenu: true,
-      submenu: [
-        { label: 'Egyptology', link: '/departments/1' },
-        { label: 'Restoration', link: '/departments/2' },
-        { label: 'Islamic Archaeology', link: '/departments/3' }
-      ]
-    },
-    { label: 'Centers', link: '/centers' },
-    { label: 'Services', link: '/services' },
-    { label: 'News', link: '/posts/news' },
+  constructor(private headerService: HeaderService) {}
 
-  ];
-
-  ngOnInit() {}
+  ngOnInit() {
+    this.headerService.getMenuItems().subscribe(items => {
+      this.menuItems = items;
+    });
+  }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;

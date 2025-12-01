@@ -1,0 +1,40 @@
+<div *ngIf="service">
+  <div class="content-header">
+    <h2>Service Requirements</h2>
+    <div class="underline"></div>
+  </div>
+
+  <div class="content-section">
+    <h3>Requirements for {{ service.name }}</h3>
+    <p>To utilize our services, please ensure you have the following requirements ready:</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="info-card" *ngFor="let requirement of service.requirements">
+      <h4><i class="fas fa-check-circle"></i> {{ requirement }}</h4>
+      <p>Essential requirement for service delivery and optimal results.</p>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h3>Application Process</h3>
+    <ol>
+      <li>Review all requirements listed above</li>
+      <li>Prepare necessary documentation</li>
+      <li>Contact our service coordinator</li>
+      <li>Schedule initial consultation</li>
+      <li>Submit formal application</li>
+      <li>Await approval and scheduling</li>
+    </ol>
+  </div>
+
+  <div class="content-section">
+    <h3>Important Notes</h3>
+    <ul>
+      <li>All requirements must be met before service delivery</li>
+      <li>Processing time varies based on service complexity</li>
+      <li>Additional requirements may apply for specialized services</li>
+      <li>Contact us for specific questions about requirements</li>
+    </ul>
+  </div>
+</div>

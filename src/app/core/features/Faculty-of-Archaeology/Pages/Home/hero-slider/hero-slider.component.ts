@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 interface Slide {
   id: number;
@@ -7,13 +8,13 @@ interface Slide {
   title: string;
   description: string;
   buttonText: string;
-  buttonLink: string;
+  buttonLink: string | string[];
 }
 
 @Component({
   selector: 'app-hero-slider',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './hero-slider.component.html',
   styleUrls: ['./hero-slider.component.css']
 })
@@ -28,7 +29,7 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
       title: 'Welcome to Egypt',
       description: 'Discover the ancient land of pharaohs and wonders.',
       buttonText: 'Explore',
-      buttonLink: '#'
+      buttonLink: '/about/vision'
     },
     {
       id: 2,
@@ -36,7 +37,7 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
       title: 'Discover History',
       description: 'Walk through centuries of civilization and culture.',
       buttonText: 'Learn More',
-      buttonLink: '#'
+      buttonLink: '/about/vision'
     },
     {
       id: 3,
@@ -44,7 +45,7 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
       title: 'Visit the Museum',
       description: 'See treasures that tell Egypt\'s timeless story.',
       buttonText: 'Get Tickets',
-      buttonLink: '#'
+      buttonLink: '/about/vision'
     }
   ];
 

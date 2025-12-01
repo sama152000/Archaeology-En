@@ -1,0 +1,323 @@
+/* ===== Administrative Structure Component Styles ===== */
+h2 {
+  color: #2b2410;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.underline {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, #c59c6c, #b68b5f);
+  margin: 0 auto 3rem;
+  border-radius: 2px;
+}
+
+.intro-text {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loading-state {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+/* ===== Leadership Sections ===== */
+.leadership-section {
+  margin-bottom: 4rem;
+}
+
+.leadership-section h3 {
+  color: #2b2410;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+}
+
+.leadership-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, #c59c6c, #b68b5f);
+  border-radius: 2px;
+}
+
+/* ===== Dean Card ===== */
+.dean-card {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  background: linear-gradient(135deg, #f8f5f0, #fff);
+  border: 2px solid #c59c6c;
+  padding: 2.5rem;
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  margin-bottom: 3rem;
+}
+
+.dean-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 45px rgba(197, 156, 108, 0.2);
+}
+
+/* ===== Person Cards ===== */
+.person-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.person-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  border-color: #c59c6c;
+}
+
+/* ===== Person Image ===== */
+.person-image {
+  flex-shrink: 0;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.dean-card .person-image {
+  margin-bottom: 0;
+}
+
+.person-image img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #c59c6c;
+  transition: transform 0.3s ease;
+}
+
+.dean-card .person-image img {
+  width: 200px;
+  height: 200px;
+  border: 5px solid #c59c6c;
+}
+
+.person-image:hover img {
+  transform: scale(1.05);
+}
+
+/* ===== Person Info ===== */
+.person-info h4 {
+  font-size: 1.3rem;
+  color: #2b2410;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.dean-card .person-info h4 {
+  font-size: 1.8rem;
+}
+
+.person-title {
+  font-size: 1rem;
+  color: #c59c6c;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.dean-card .person-title {
+  font-size: 1.2rem;
+}
+
+.person-description {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== Contact Info ===== */
+.contact-info {
+  text-align: left;
+}
+
+.dean-card .contact-info {
+  margin-top: 1.5rem;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.contact-info i {
+  color: #c59c6c;
+  font-size: 0.9rem;
+  width: 16px;
+}
+
+/* ===== Grid Layouts ===== */
+.vice-deans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.department-heads-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* ===== Animations ===== */
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 992px) {
+  .dean-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .dean-card .person-image img {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .dean-card .person-info h4 {
+    font-size: 1.6rem;
+  }
+  
+  .leadership-section h3 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .person-card {
+    padding: 1.5rem;
+  }
+  
+  .dean-card {
+    padding: 1.8rem;
+  }
+  
+  .dean-card .person-image img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .person-image img {
+    width: 130px;
+    height: 130px;
+  }
+  
+  .person-info h4 {
+    font-size: 1.2rem;
+  }
+  
+  .dean-card .person-info h4 {
+    font-size: 1.5rem;
+  }
+  
+  .vice-deans-grid,
+  .department-heads-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .intro-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .underline {
+    width: 60px;
+    height: 3px;
+  }
+  
+  .person-card {
+    padding: 1.2rem;
+  }
+  
+  .dean-card {
+    padding: 1.5rem;
+  }
+  
+  .person-image img {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .dean-card .person-image img {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .person-info h4 {
+    font-size: 1.1rem;
+  }
+  
+  .dean-card .person-info h4 {
+    font-size: 1.4rem;
+  }
+  
+  .person-title {
+    font-size: 0.95rem;
+  }
+  
+  .contact-info p {
+    font-size: 0.9rem;
+  }
+  
+  .vice-deans-grid,
+  .department-heads-grid {
+    grid-template-columns: 1fr;
+  }
+}

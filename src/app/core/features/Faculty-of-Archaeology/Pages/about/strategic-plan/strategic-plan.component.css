@@ -1,0 +1,264 @@
+/* ===== Strategic Plan Component Styles ===== */
+h2 {
+  color: #2b2410;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.underline {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, #c59c6c, #b68b5f);
+  margin: 0 auto 3rem;
+  border-radius: 2px;
+}
+
+.loading-state {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+/* ===== Plan Header ===== */
+.plan-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8f5f0, #fff);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.plan-header h3 {
+  color: #2b2410;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.timeline-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #c59c6c, #b68b5f);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.plan-description {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ===== Goals Section ===== */
+.goals-section {
+  margin-top: 3rem;
+}
+
+.goals-section h4 {
+  color: #2b2410;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 2rem;
+}
+
+.goal-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.goal-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  border-color: #c59c6c;
+}
+
+.goal-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #c59c6c, #b68b5f);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 8px 20px rgba(197, 156, 108, 0.3);
+}
+
+.goal-icon i {
+  font-size: 1.8rem;
+  color: white;
+}
+
+.goal-content {
+  text-align: center;
+}
+
+.goal-content h5 {
+  font-size: 1.4rem;
+  color: #2b2410;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.goal-description {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== Targets Section ===== */
+.targets-section {
+  text-align: left;
+  background: #f8f8f8;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-top: 1.5rem;
+}
+
+.targets-section h6 {
+  font-size: 1.1rem;
+  color: #2b2410;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.targets-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.targets-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.targets-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #c59c6c;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* ===== Animations ===== */
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 992px) {
+  .goals-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .plan-header h3 {
+    font-size: 1.8rem;
+  }
+  
+  .goal-card {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .plan-header {
+    padding: 1.5rem;
+  }
+  
+  .plan-header h3 {
+    font-size: 1.6rem;
+  }
+  
+  .plan-description {
+    font-size: 1rem;
+  }
+  
+  .goals-section h4 {
+    font-size: 1.6rem;
+  }
+  
+  .goal-card {
+    padding: 1.8rem;
+  }
+  
+  .goal-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .goal-icon i {
+    font-size: 1.5rem;
+  }
+  
+  .goal-content h5 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .underline {
+    width: 60px;
+    height: 3px;
+  }
+  
+  .timeline-badge {
+    padding: 0.4rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .goal-card {
+    padding: 1.5rem;
+  }
+  
+  .targets-section {
+    padding: 1.2rem;
+  }
+  
+  .targets-list li {
+    font-size: 0.95rem;
+  }
+}

@@ -1,18 +1,16 @@
-
-
+/* ===== IMPORTS ===== */
 @import 'bootstrap/dist/css/bootstrap.min.css';
-
-/* PrimeIcons CSS */
 @import 'primeicons/primeicons.css';
 
-/* IBM Plex Sans Font */
+/* ===== FONT DECLARATIONS ===== */
 @font-face {
-  font-family: 'IBM Plex Sans'  !important;
+  font-family: 'IBM Plex Sans';
   src: url('./assets/fonts/IBM_Plex_Sans/IBMPlexSans-VariableFont_wdth,wght.ttf') format('truetype-variations');
   font-weight: 100 900;
   font-stretch: 75% 100%;
 }
 
+/* ===== GLOBAL RESET & BASE STYLES ===== */
 * {
   margin: 0;
   padding: 0;
@@ -39,6 +37,7 @@ app-root {
   flex: 1;
 }
 
+/* ===== LAYOUT COMPONENTS ===== */
 .container {
   width: 90%;
   max-width: 1200px;
@@ -52,38 +51,17 @@ section {
   overflow: hidden;
 }
 
-.btn {
-  display: inline-block;
-  background-color: #c59c6c;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: 600;
-  transition: background-color 0.3s;
-  cursor: pointer;
-
-  &.small {
-    padding: 0.5rem 1.2rem;
-    font-size: 0.9rem;
-  }
-
-  &:hover {
-    background-color: #b68b5f;
-  }
-}
-
+/* ===== TYPOGRAPHY ===== */
 .section-title {
   font-size: 2.2rem;
   color: #333;
   text-align: center;
   margin-bottom: 0.5rem;
-    font-family: 'IBM Plex Sans' !important;
-
-  
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 700;
 }
 
-.title{
+.title {
   color: #edd5a1;
   font-size: 2rem;
   font-weight: 700;
@@ -91,6 +69,7 @@ section {
   letter-spacing: 1px;
   margin-bottom: 1rem;
 }
+
 .underline {
   width: 80px;
   height: 4px;
@@ -100,17 +79,407 @@ section {
   display: block;
 }
 
+/* ===== BUTTON COMPONENTS ===== */
+.btn {
+  display: inline-block;
+  background-color: #c59c6c;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.btn.small {
+  padding: 0.5rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+.btn:hover {
+  background-color: #b68b5f;
+  text-decoration: none;
+  color: #fff;
+}
+
+.btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* ===== SHARED PAGE LAYOUTS ===== */
+.about-section {
+  background: #f8f5f0;
+  min-height: 100vh;
+  padding: 40px 0;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  align-items: flex-start;
+  padding: 60px 0;
+}
+
+.about-sidebar {
+  background: #f4f7fb;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 20px;
+}
+
+.about-sidebar h3 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: #00365e;
+  border-bottom: 2px solid #d2a85f;
+  display: inline-block;
+  padding-bottom: 5px;
+  font-weight: 600;
+}
+
+.about-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-sidebar ul li {
+  margin-bottom: 12px;
+}
+
+.about-sidebar ul li a {
+  color: #00365e;
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.about-sidebar ul li a:hover,
+.about-sidebar ul li a.active {
+  background: #00416a;
+  color: #fff;
+  text-decoration: none;
+}
+
+.about-sidebar ul li a i {
+  font-size: 0.9rem;
+  width: 16px;
+  text-align: center;
+}
+
+.about-content {
+  min-height: 400px;
+  background: white;
+  padding: 40px 50px;
+  border-radius: 10px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== CONTENT SECTION STYLES ===== */
+.content-header h2 {
+  color: #2b2410;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-align: center;
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.5px;
+}
+
+.content-section {
+  margin-bottom: 3rem;
+}
+
+.content-section h3 {
+  color: #00365e;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  border-bottom: 2px solid #d2a85f;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.content-section p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.content-section ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.content-section ul li {
+  margin-bottom: 0.5rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ===== CARD COMPONENTS ===== */
+.info-card {
+  background: #f8f8f8;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  background: #fff;
+}
+
+.info-card h4 {
+  color: #00365e;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.info-card p {
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== PROFILE CARDS ===== */
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: linear-gradient(135deg, #f8f5f0, #fff);
+  border: 2px solid #d4af37;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 2rem;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(197, 156, 108, 0.2);
+}
+
+.profile-image {
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.profile-image img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #d4af37;
+  transition: transform 0.4s ease;
+}
+
+.profile-image:hover img {
+  transform: scale(1.05);
+}
+
+.profile-info h3 {
+  font-size: 1.3rem;
+  color: #1e2a47;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.profile-info .title {
+  color: #d4af37;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.profile-info .quote {
+  font-style: italic;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* ===== GRID LAYOUTS ===== */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* ===== UTILITIES ===== */
 .fade-in-element {
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s ease-out;
+}
 
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
+.fade-in-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 992px) {
+  .container { 
+    width: 95%; 
+  }
+  
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-sidebar {
+    margin-bottom: 30px;
+    order: 2;
+  }
+  
+  .about-content {
+    order: 1;
+    padding: 30px 25px;
+  }
+  
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .profile-card {
+    gap: 1.5rem;
+    padding: 1.8rem;
+  }
+  
+  .profile-image img {
+    width: 120px;
+    height: 120px;
   }
 }
 
-@media (max-width: 992px) {
-  .container { width: 95%; }
+@media (max-width: 768px) {
+  .about-layout {
+    padding: 40px 0;
+    gap: 30px;
+  }
+  
+  .about-sidebar {
+    padding: 20px;
+  }
+  
+  .about-content {
+    padding: 25px 15px;
+  }
+  
+  .content-header h2 {
+    font-size: 2rem;
+  }
+  
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+  
+  .profile-image img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-layout {
+    padding: 30px 0;
+  }
+  
+  .about-sidebar h3 {
+    font-size: 1.2rem;
+  }
+  
+  .content-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .underline {
+    width: 60px;
+    height: 3px;
+  }
+  
+  .profile-card {
+    padding: 1.2rem;
+  }
+  
+  .info-card {
+    padding: 20px;
+  }
+  
+  section {
+    padding: 3rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-content {
+    padding: 20px 10px;
+  }
+  
+  .profile-image img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .content-section h3 {
+    font-size: 1.2rem;
+  }
+  
+  .content-section p {
+    font-size: 0.95rem;
+  }
 }

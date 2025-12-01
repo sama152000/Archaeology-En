@@ -1,16 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-interface FooterLink {
-  label: string;
-  url: string;
-}
-
-interface SocialLink {
-  icon: string;
-  url: string;
-  label: string;
-}
+import { FooterService } from '../../../Services/footer.service';
+import { FooterLink, SocialLink, ContactInfo, FacultyInfo } from '../../../model/footer.model';
 
 @Component({
   selector: 'app-footer',
@@ -19,27 +10,20 @@ interface SocialLink {
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
-export class FooterComponent {
+export class FooterComponent implements OnInit {
   currentYear = new Date().getFullYear();
 
-  quickLinks: FooterLink[] = [
-    { label: 'About', url: '/about' },
-    { label: 'History', url: '/history' },
-    { label: 'Departments', url: '/departments' },
-    { label: 'Events', url: '/events' },
-    { label: 'Contact', url: '/contact' }
-  ];
+  quickLinks: FooterLink[] = [];
+  contactInfo!: ContactInfo;
+  socialLinks: SocialLink[] = [];
+  facultyInfo!: FacultyInfo;
 
-  contactInfo = {
-    address: 'Cairo, Egypt',
-    phone: '+20 123 456 789',
-    email: 'info@pharaohacademy.edu'
-  };
+  constructor(private footerService: FooterService) {}
 
-  socialLinks: SocialLink[] = [
-    { icon: 'pi pi-facebook', url: '#', label: 'Facebook' },
-    { icon: 'pi pi-instagram', url: '#', label: 'Instagram' },
-    { icon: 'pi pi-twitter', url: '#', label: 'Twitter' },
-    { icon: 'pi pi-youtube', url: '#', label: 'YouTube' }
-  ];
+  ngOnInit(): void {
+    this.footerService.getQuickLinks().subscribe(links => this.quickLinks = links);
+    this.footerService.getContactInfo().subscribe(info => this.contactInfo = info);
+    this.footerService.getSocialLinks().subscribe(links => this.socialLinks = links);
+    this.footerService.getFacultyInfo().subscribe(info => this.facultyInfo = info);
+  }
 }

@@ -1,0 +1,35 @@
+<div *ngIf="service">
+  <div class="content-header">
+    <h2>{{ service.name }}</h2>
+    <div class="underline"></div>
+  </div>
+
+  <div class="profile-card">
+    <div class="profile-image">
+      <img [src]="service.manager.image" [alt]="service.manager.name" />
+    </div>
+    <div class="profile-info">
+      <h3>{{ service.manager.name }}</h3>
+      <p class="title">{{ service.manager.title }}</p>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h3>About This Service</h3>
+    <p *ngFor="let para of service.description">{{ para }}</p>
+  </div>
+
+  <div class="content-section">
+    <h3>Services Offered</h3>
+    <ul>
+      <li *ngFor="let serviceItem of service.servicesList">{{ serviceItem }}</li>
+    </ul>
+  </div>
+
+  <div class="content-section">
+    <h3>Benefits</h3>
+    <ul>
+      <li *ngFor="let benefit of service.benefits">{{ benefit }}</li>
+    </ul>
+  </div>
+</div>

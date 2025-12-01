@@ -1,0 +1,36 @@
+<div *ngIf="sector">
+  <div class="content-header">
+    <h2>{{ sector.name }}</h2>
+    <div class="underline"></div>
+  </div>
+
+  <div class="profile-card">
+    <div class="profile-image">
+      <img [src]="sector.head.image" [alt]="sector.head.name" />
+    </div>
+    <div class="profile-info">
+      <h3>{{ sector.head.name }}</h3>
+      <p class="title">{{ sector.head.title }}</p>
+      <p class="quote" *ngIf="sector.head.quote">"{{ sector.head.quote }}"</p>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h3>About the Sector</h3>
+    <p *ngFor="let para of sector.description">{{ para }}</p>
+  </div>
+
+  <div class="content-section">
+    <h3>Objectives</h3>
+    <ul>
+      <li *ngFor="let objective of sector.objectives">{{ objective }}</li>
+    </ul>
+  </div>
+
+  <div class="content-section">
+    <h3>Key Achievements</h3>
+    <ul>
+      <li *ngFor="let achievement of sector.achievements">{{ achievement }}</li>
+    </ul>
+  </div>
+</div>

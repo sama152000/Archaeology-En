@@ -1,0 +1,91 @@
+<div class="fade-in-element">
+  <h2>Administrative Structure</h2>
+  <div class="underline"></div>
+  
+  <p class="intro-text">
+    Meet the dedicated leadership team of the Faculty of Archaeology, committed to academic excellence and institutional growth.
+  </p>
+
+  <div class="loading-state" *ngIf="isLoading">
+    <p>Loading administrative structure...</p>
+  </div>
+
+  <div class="structure-content" *ngIf="!isLoading && administrativeStructure">
+    
+    <!-- Dean Section -->
+    <div class="leadership-section">
+      <h3>Dean</h3>
+      <div class="dean-card">
+        <div class="person-image">
+          <img [src]="administrativeStructure.dean.image" [alt]="administrativeStructure.dean.name" />
+        </div>
+        <div class="person-info">
+          <h4>{{ administrativeStructure.dean.name }}</h4>
+          <p class="person-title">{{ administrativeStructure.dean.title }}</p>
+          <p class="person-description" *ngIf="administrativeStructure.dean.description">
+            {{ administrativeStructure.dean.description }}
+          </p>
+          <div class="contact-info">
+            <p *ngIf="administrativeStructure.dean.email">
+              <i class="pi pi-envelope"></i> {{ administrativeStructure.dean.email }}
+            </p>
+            <p *ngIf="administrativeStructure.dean.office">
+              <i class="pi pi-map-marker"></i> {{ administrativeStructure.dean.office }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vice Deans Section -->
+    <div class="leadership-section">
+      <h3>Vice Deans</h3>
+      <div class="vice-deans-grid">
+        <div class="person-card" *ngFor="let viceDean of administrativeStructure.viceDeans; let i = index"
+             [style.animation-delay.ms]="i * 150">
+          <div class="person-image">
+            <img [src]="viceDean.image" [alt]="viceDean.name" />
+          </div>
+          <div class="person-info">
+            <h4>{{ viceDean.name }}</h4>
+            <p class="person-title">{{ viceDean.title }}</p>
+            <div class="contact-info">
+              <p *ngIf="viceDean.email">
+                <i class="pi pi-envelope"></i> {{ viceDean.email }}
+              </p>
+              <p *ngIf="viceDean.office">
+                <i class="pi pi-map-marker"></i> {{ viceDean.office }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Department Heads Section -->
+    <div class="leadership-section">
+      <h3>Department Heads</h3>
+      <div class="department-heads-grid">
+        <div class="person-card" *ngFor="let head of administrativeStructure.departmentHeads; let i = index"
+             [style.animation-delay.ms]="i * 150">
+          <div class="person-image">
+            <img [src]="head.image" [alt]="head.name" />
+          </div>
+          <div class="person-info">
+            <h4>{{ head.name }}</h4>
+            <p class="person-title">{{ head.title }}</p>
+            <div class="contact-info">
+              <p *ngIf="head.email">
+                <i class="pi pi-envelope"></i> {{ head.email }}
+              </p>
+              <p *ngIf="head.office">
+                <i class="pi pi-map-marker"></i> {{ head.office }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
