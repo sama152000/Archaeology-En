@@ -24,7 +24,7 @@ export class LatestNewsComponent implements OnInit {
     });
 
     this.newsService.getNews().subscribe(news => {
-      this.newsItems = news.filter(item => !item.featured);
+      this.newsItems = news.filter(item => !item.featured).slice(0, 3);
     });
   }
 }

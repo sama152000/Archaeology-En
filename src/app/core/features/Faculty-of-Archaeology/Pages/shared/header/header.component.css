@@ -1,6 +1,6 @@
 /* ===== Header Base ===== */
 .site-header {
-  background: linear-gradient(90deg, #2b2410, #e7d3a6);
+  background: linear-gradient(90deg, #2b2410e0, #2b2410e0);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -9,6 +9,30 @@
   transition: all 0.4s ease;
 }
 
+.top-bar {
+  font-size: 0.9rem;
+  background-color: var(--accent-orange);
+}
+
+.btn-primary {
+  background-color: var(--primary-blue);
+  border-color: var(--primary-blue);
+  border-radius: var(--border-radius);
+  padding: 0.25rem 2rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-blue-dark);
+  border-color: var(--primary-blue-dark);
+  color: var(--primary-blue-dark);
+}
+
+.contact-info span {
+  font-weight: 500;
+}
 .header-container {
   max-width: 1500px;
   margin: 0 auto;
@@ -250,12 +274,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 16px;
+  padding: 8px 50px;
   margin-left: 12px;
   background-color: transparent;
-  border: 2px solid #d2a85f;
+  border: 2px solid #2b2410;
   border-radius: 20px;
-  color: #f6e9c6;
+  color: #2b2410;
   font-weight: 600;
   font-size: 1rem;
   text-decoration: none;
@@ -266,8 +290,8 @@
 
 .arabic-button:hover,
 .arabic-button:focus {
-  background-color: #d2a85f;
-  color: #2b2410;
+  background-color: #2b2410;
+  color: white;
   outline: none;
 }
 

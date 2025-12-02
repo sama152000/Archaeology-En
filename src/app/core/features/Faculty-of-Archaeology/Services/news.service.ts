@@ -1,173 +1,190 @@
- import { Injectable } from '@angular/core';
- import { Observable, of } from 'rxjs';
- import { News, Event } from '../model/news.model';
-import { Announcement } from '../model/news.model';
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { News, Event, Announcement } from '../model/news.model';
 
- @Injectable({
-   providedIn: 'root'
- })
- export class NewsService {
-   private newsItems: News[] = [
-     new News(
-       1,
-       'Major Discovery in Giza: Newly Found Pharaoh\'s Tomb',
-       'Archaeologists at the Giza plateau have unearthed a previously unknown tomb believed to belong to a 5th Dynasty pharaoh. The discovery sheds light on ancient Egyptian funerary practices and architecture.',
-       'October 10, 2025',
-      './assets/lux6.jpg',
-       '/news/giza-discovery',
+@Injectable({
+  providedIn: 'root'
+})
+export class NewsService {
+  private newsItems: News[] = [
+    // Featured News - Aswan Field Trip
+    new News(
+      1,
+      'Field Study Trip for Faculty of Archaeology Students to Aswan',
+      'As part of the Faculty’s continuous efforts to enhance the educational process by closely linking theoretical study with practical application, the Faculty of Archaeology, Luxor University, organized a scientific field trip for students to the most important archaeological landmarks in the city of Aswan on Saturday, 29 November 2025.',
+      'November 29, 2025',
+      './assets/new1.jpg',
+      '/news/aswan-field-trip',
       true,
-      `<p>Researchers from the Faculty of Archaeology at Cairo University have uncovered a collection of ancient statues in Luxor dating back to the Middle Kingdom. This remarkable find sheds new light on religious rituals and burial practices in ancient Egypt.</p>
-      <p>The excavation team, led by Prof. Dr. Noura El-Masry, discovered the artifacts near the site of Deir el-Bahari. The statues were remarkably well-preserved and include depictions of deities and royal figures.</p>
-      <p>This discovery marks an important step in ongoing efforts to document and preserve Egypt's heritage. It also highlights the Faculty's commitment to fostering academic excellence and advancing archaeological research at both national and international levels.</p>
-      <p>The findings will be displayed in the Egyptian Museum later this year, accompanied by a series of public lectures and workshops organized by the Faculty's Department of Egyptology.</p>`,
+      `<p>As part of the Faculty’s continuous efforts to enhance the educational process by closely linking theoretical study with practical application, the Faculty of Archaeology, Luxor University, organized a scientific field trip for students to the most important archaeological landmarks in the city of Aswan on Saturday, 29 November 2025.</p>
+      <p>The visit began with an exploration of the Qubbet el-Hawa archaeological area, where students examined the rock-cut tombs dating to the Old and Middle Kingdoms. Among the most prominent tombs were those of Harkhuf, Sabni, and Mekhu (Old Kingdom) and Sarenput (Middle Kingdom), in addition to early Christian church remains and the Islamic dome attributed to Sheikh Ali Abu el-Hawa.</p>
+      <p>The students then proceeded to Agilkia Island (the current location of Philae), studying the Ptolemaic and Roman monuments, particularly the Temple of Isis. The visit highlighted the last known hieroglyphic inscription (394 AD), Trajan’s Kiosk, and UNESCO’s 1960s rescue operation to relocate the temples after the construction of the Aswan High Dam.</p>
+      <p>The day concluded with recreational visits to traditional Nubian houses in Gharb Sehel and the “Bakkar” amusement park, combining academic enrichment with cultural enjoyment.</p>`,
       'Faculty of Archaeology'
-     ),
-     new News(
-       2,
-       'Annual Cultural Festival Celebrates Ancient Arts',
-       'The faculty hosted a vibrant event featuring traditional performances, ancient crafts, and student-led exhibitions.',
-       'September 20, 2025',
-      './assets/lux10.jpg',
+    ),
+
+    // New: Scientific Seminar - Egyptian Archaeology Department
+    new News(
+      2,
+      'Scientific Seminar on Master’s and PhD Research Plans',
+      'Under the chairmanship of Prof. Dr. Khaled Abdel-Naeem Mohamadeen, Dean of the Faculty, a scientific seminar was held to discuss research plans for Master’s and PhD degrees in the Egyptian Archaeology Department.',
+      'November 2025',
+      './assets/new2.jpg',
+      '/news/egyptian-archaeology-seminar',
+      false,
+      `<p>Under the patronage of Prof. Dr. Khaled Abdel-Naeem Mohamadeen, Dean of the Faculty, and in the presence of former Dean Prof. Dr. Mansour El-Nubi Mansour, Assoc. Prof. Dr. Shaimaa Abdel-Sattar (Head of Egyptian Archaeology Department), faculty members, assistants, researchers, and students, a scientific seminar was held to review and discuss proposed research plans for Master’s and PhD registration.</p>
+      <p>The seminar provided a valuable platform for academic guidance and constructive feedback, reflecting the Faculty’s commitment to advancing high-quality postgraduate research in Egyptology.</p>`,
+      'Egyptian Archaeology Department'
+    ),
+
+    // New: Lecture - Imiut Emblem
+    new News(
+      3,
+      'Scientific Lecture: The Imiut Emblem and Its Role in Ancient Egyptian Belief',
+      'Dr. Reda Attallah delivered the second scientific lecture of the academic year titled "The Imiut Emblem and Its Role in Ancient Egyptian Religious Thought".',
+      'November 2025',
+      './assets/new3.jpg',
+      '/news/imiut-lecture',
+      false,
+      `<p>Under the patronage of Prof. Dr. Sabreen Jaber Abdel-Gelil (President of Luxor University), Prof. Dr. Khaled Abdel-Naeem Mohamadeen (Dean), and Assoc. Prof. Dr. Shaimaa Abdel-Sattar (Head of Department), Dr. Reda Attallah, Assistant Professor of Egyptian Archaeology and Religion, delivered a distinguished lecture on the Imiut fetish.</p>
+      <p>The lecture covered the linguistic meaning, historical development, material composition, contents (water, milk, wine, blood), and religious associations with Osiris, Anubis, and Seth. The session concluded with an innovative cryptographic reading of the emblem’s symbolism.</p>`,
+      'Egyptian Archaeology Department'
+    ),
+
+    // New: Islamic Archaeology Field Training in Qus
+    new News(
+      4,
+      'Field Training Program in Islamic Archaeology – Qus City',
+      'The Department of Islamic Archaeology organized a field training trip to the historic city of Qus under the supervision of department faculty.',
+      'November 2025',
+      './assets/new4.jpg',
+      '/news/qus-field-training',
+      false,
+      `<p>Under the supervision of Prof. Dr. Khaled Abdel-Naeem Mohamadeen (Dean), Assoc. Prof. Dr. Salama Hamed (Vice Dean for Education and Students & Head of Islamic Archaeology), and Assoc. Prof. Dr. Farag Hussein Farag, students participated in a field training program in Qus.</p>
+      <p>The program included detailed study of the Omari Mosque, the Basilica of Qus, and Ottoman-period house façades, providing hands-on experience in Islamic architectural documentation and preservation.</p>`,
+      'Islamic Archaeology Department'
+    ),
+
+    // New: International Workshop - Day 2
+    new News(
+      5,
+      'Second International Workshop: Rewriting History – New Technologies in Egyptological Documentation',
+      'The second day of the international workshop concluded successfully with presentations from the Thutmose III Temple Project team.',
+      'November 11, 2025',
+      './assets/event3jpg.jpg',
+      '/news/thutmose-workshop-day2',
+      false,
+      `<p>The second day of the international workshop "Rewriting History: New Technologies and Advances in Visual Documentation in Egyptology" concluded successfully on 11 November 2025.</p>
+      <p>Manuel Abilleira, Inmaculada Delage, Victoria Peña, and Miguel Ángel Fernández from the Thutmose III Temple Project delivered lectures on cutting-edge documentation techniques to over 90 participants.</p>
+      <p>The Faculty extends its sincere thanks to Luxor University, the Egyptian Ministry of Tourism and Antiquities, and the Spanish Cooperation Office in Cairo (AECID-APERCA Program) for their support and excellent organization.</p>`,
+      'International Cooperation Office'
+    ),
+
+    // Existing older news (kept as fallback)
+    new News(
+      6,
+      'Annual Cultural Festival Celebrates Ancient Arts',
+      'The faculty hosted a vibrant event featuring traditional performances, ancient crafts, and student-led exhibitions.',
+      'September 20, 2025',
+      './assets/event4jpg.jpg',
       '/news/cultural-festival',
       false,
-      `<p>The Faculty of Archaeology hosted its annual cultural festival, bringing together students, faculty, and the local community to celebrate ancient arts and traditions.</p>
-      <p>The event featured traditional music performances, craft demonstrations, and student-led exhibitions showcasing their research projects.</p>
-      <p>Visitors had the opportunity to participate in hands-on workshops including pottery making, hieroglyph writing, and ancient textile techniques.</p>`,
-      'Dr. Ahmed Hassan'
-     ),
-     new News(
-       3,
-       'New Partnership with the Egyptian Museum',
-       'The Department of Archaeology announced a research collaboration with the Egyptian Museum to preserve rare artifacts.',
-       'August 15, 2025',
-      './assets/lux5.jpg',
-      '/news/museum-partnership',
-      false,
-      `<p>The Faculty has established a groundbreaking partnership with the Egyptian Museum to advance archaeological research and artifact preservation.</p>
-      <p>This collaboration will provide students with unprecedented access to the museum's collections for research purposes.</p>
-      <p>Joint research projects will focus on digital documentation and conservation techniques for ancient artifacts.</p>`,
-      'Prof. Dr. Sarah Mohamed'
-     ),
-     new News(
-       4,
-       'Students Join Summer Research Program in Luxor',
-       'Archaeology students gain hands-on experience in excavation and artifact documentation at the Luxor site.',
-       'July 5, 2025',
-      './assets/lux2.jpg',
-      '/news/luxor-program',
-      false,
-      `<p>Twenty undergraduate students from the Faculty participated in an intensive summer research program in Luxor, working alongside international archaeologists.</p>
-      <p>The program provided hands-on experience in excavation techniques, artifact documentation, and site preservation methods.</p>
-      <p>Students contributed to significant discoveries including pottery fragments and inscribed stones dating to the New Kingdom period.</p>`,
-      'Dr. Mahmoud Ali'
-     )
-   ];
+      `<p>The Faculty of Archaeology hosted its annual cultural festival, bringing together students, faculty, and the local community to celebrate ancient arts and traditions.</p>`
+    )
+  ];
 
-   private events: Event[] = [
-     new Event(
-       1,
-       'Ancient Egypt Exhibition',
-       'Friday to Sunday: 10 AM – 5 PM',
-       '26',
-       'May',
-      './assets/lux11.jpg',
-      '/events/egypt-exhibition',
-      `<p>Join us for a comprehensive exhibition showcasing the latest archaeological discoveries from ancient Egypt.</p>
-      <p>The exhibition features artifacts from recent excavations, interactive displays, and guided tours by faculty experts.</p>
-      <p>Special presentations will be held each day at 2 PM covering different aspects of ancient Egyptian civilization.</p>`,
-      'Faculty Exhibition Hall'
-     ),
-     new Event(
-       2,
-       'Pharaoh\'s Legacy Seminar',
-       'Monday: 2 PM – 6 PM',
-       '12',
-       'Jun',
-      './assets/lux12.jpg',
-      '/events/pharaoh-seminar',
-      `<p>An intensive seminar exploring the lasting impact of pharaonic rule on modern Egyptian culture and society.</p>
-      <p>Leading experts will discuss recent research findings and their implications for our understanding of ancient Egyptian governance.</p>
-      <p>The seminar includes interactive sessions and Q&A opportunities with renowned archaeologists.</p>`,
+  private events: Event[] = [
+    new Event(
+      1,
+      'Scientific Lecture: The Rosetta Stone and Stages of Its Discovery in Antiquity',
+      'Upcoming lecture on one of the most important discoveries in Egyptology',
+      'December',
+      '15',
+      './assets/event1jpg.jpg',
+      '/events/rosetta-stone-lecture',
+      `<p>Join us for a detailed lecture on the Rosetta Stone, its discovery, decipherment journey, and its revolutionary impact on understanding ancient Egyptian writing.</p>`,
       'Main Auditorium'
-     ),
-     new Event(
-       3,
-       'Hieroglyph Workshop',
-       'Wednesday to Friday: 9 AM – 4 PM',
-       '28',
-       'Jun',
-      './assets/lux13.jpg',
-      '/events/hieroglyph-workshop',
-      `<p>Learn the ancient art of hieroglyphic writing in this hands-on workshop designed for students and enthusiasts.</p>
-      <p>Participants will learn to read and write basic hieroglyphs, understand their historical context, and create their own inscriptions.</p>
-      <p>All materials are provided, and participants will take home their own hieroglyphic artwork.</p>`,
-      'Workshop Room A'
-     )
-   ];
+    ),
+    new Event(
+      2,
+      'Scientific Lecture: The Imiut Emblem and Its Relation to Ancient Egyptian Belief',
+      'Dr. Reda Attallah explores the religious and symbolic significance of the Imiut fetish',
+      'December',
+      '20',
+      './assets/event2jpg.jpg',
+      '/events/imiut-emblem-lecture',
+      `<p>An in-depth exploration of the Imiut emblem, its evolution, materials, contents, and deep connections with Osiris, Anubis, and ancient Egyptian afterlife beliefs.</p>`,
+      'Lecture Hall 3'
+    ),
+        new Event(
+      3,
+      'Scientific Lecture: The Rosetta Stone and Stages of Its Discovery in Antiquity',
+      'Upcoming lecture on one of the most important discoveries in Egyptology',
+      'December',
+      '15',
+      './assets/event4jpg.jpg',
+      '/events/rosetta-stone-lecture',
+      `<p>Join us for a detailed lecture on the Rosetta Stone, its discovery, decipherment journey, and its revolutionary impact on understanding ancient Egyptian writing.</p>`,
+      'Main Auditorium'
+    ),
+    new Event(
+      4,
+      'Scientific Lecture: The Imiut Emblem and Its Relation to Ancient Egyptian Belief',
+      'Dr. Reda Attallah explores the religious and symbolic significance of the Imiut fetish',
+      'December',
+      '20',
+      './assets/event3jpg.jpg',
+      '/events/imiut-emblem-lecture',
+      `<p>An in-depth exploration of the Imiut emblem, its evolution, materials, contents, and deep connections with Osiris, Anubis, and ancient Egyptian afterlife beliefs.</p>`,
+      'Lecture Hall 3'
+    ),
+
+  ];
 
   private announcements: Announcement[] = [
     new Announcement(
       1,
-      'New Academic Year Registration Opens',
-      'Registration for the 2025-2026 academic year is now open for all undergraduate and graduate programs.',
-      'November 15, 2025',
-      'https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      '/announcements/registration-2025',
-     `<p>The Faculty of Archaeology is pleased to announce that registration for the 2025-2026 academic year is now open.</p>
-      <p>All prospective students are encouraged to submit their applications early as spaces are limited.</p>
-     <p>For more information about admission requirements and application procedures, please visit our admissions office.</p>`,
+      'The Third International Conference of the Faculty of Archaeology, Luxor University',
+      'Call for Papers and Registration Now Open',
+      'Coming in 2026',
+      './assets/ann1.jpg',
+      '/announcements/third-international-conference',
+      `<p>The Faculty of Archaeology is pleased to announce its Third International Conference. Scholars and researchers are invited to submit abstracts on all aspects of archaeological research.</p>`,
       'high',
-      'Admissions Office'
-   ),
-    new Announcement(
-     2,
-      'Library Extended Hours During Exam Period',
-     'The faculty library will extend its operating hours during the final examination period to support student research.',
-      'November 10, 2025',
-      'https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      '/announcements/library-hours',
-      `<p>To support students during the upcoming examination period, the faculty library will extend its operating hours.</p>
-      <p>New hours: Monday-Friday: 7 AM - 11 PM, Saturday-Sunday: 9 AM - 9 PM</p>
-      <p>Additional study spaces and computer terminals will be available during peak hours.</p>`,
-      'medium',
-     'Library Services'
+      'Conference Committee'
     ),
     new Announcement(
-      3,
-      'Research Grant Applications Due December 1st',
-      'Faculty members and graduate students are reminded that research grant applications are due by December 1st.',
-      'November 5, 2025',
-      'https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-     '/announcements/research-grants',
-     `<p>The deadline for submitting research grant applications is approaching. All faculty members and graduate students are encouraged to apply.</p>
-      <p>Grants are available for various research areas including field excavations, laboratory analysis, and publication support.</p>
-     <p>Application forms and guidelines are available at the Research Office.</p>`,
-      'high',
-      'Research Office'
+      2,
+      'Distinguished Lecture: Glimpses of Ancient Egyptian Civilization',
+      'Monthly public lecture series continues',
+      'Every last Wednesday of the month',
+      './assets/ann2.jpg',
+      '/announcements/glimpses-lecture-series',
+      `<p>Join us for our ongoing public lecture series exploring key aspects of ancient Egyptian culture, art, religion, and daily life.</p>`,
+      'medium',
+      'Public Relations Office'
     )
   ];
 
-   getNews(): Observable<News[]> {
-     return of(this.newsItems);
-   }
-
-  getNewsById(id: number): Observable<News | undefined> {
-    const news = this.newsItems.find(item => item.id === id);
-    return of(news);
+  getNews(): Observable<News[]> {
+    return of(this.newsItems);
   }
 
-   getFeaturedNews(): Observable<News> {
-     const featured = this.newsItems.find(news => news.featured) || this.newsItems[0];
-     return of(featured);
-   }
+  getNewsById(id: number): Observable<News | undefined> {
+    return of(this.newsItems.find(item => item.id === id));
+  }
 
-   getEvents(): Observable<Event[]> {
-     return of(this.events);
-   }
+  getFeaturedNews(): Observable<News> {
+    const featured = this.newsItems.find(n => n.featured) || this.newsItems[0];
+    return of(featured);
+  }
+
+  getEvents(): Observable<Event[]> {
+    return of(this.events);
+  }
 
   getEventById(id: number): Observable<Event | undefined> {
-    const event = this.events.find(item => item.id === id);
-    return of(event);
+    return of(this.events.find(e => e.id === id));
   }
 
   getAnnouncements(): Observable<Announcement[]> {
@@ -175,7 +192,6 @@ import { Announcement } from '../model/news.model';
   }
 
   getAnnouncementById(id: number): Observable<Announcement | undefined> {
-    const announcement = this.announcements.find(item => item.id === id);
-    return of(announcement);
+    return of(this.announcements.find(a => a.id === id));
   }
- }
+}

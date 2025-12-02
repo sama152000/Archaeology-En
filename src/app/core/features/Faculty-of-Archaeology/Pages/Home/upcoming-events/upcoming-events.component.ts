@@ -20,7 +20,7 @@ export class UpcomingEventsComponent implements OnInit {
 
   ngOnInit(): void {
     this.newsService.getEvents().subscribe(events => {
-      this.events = events;
+      this.events = events.slice(0, 3);
     });
   }
 }
