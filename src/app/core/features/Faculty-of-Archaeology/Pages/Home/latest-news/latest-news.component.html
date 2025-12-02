@@ -17,7 +17,7 @@
             <span class="news-date text-primary-custom fw-semibold">{{ featuredNews.date }}</span>
             <h3 class="featured-title my-3">{{ featuredNews.title }}</h3>
             <p class="featured-excerpt text-muted mb-4">{{ featuredNews.excerpt }}</p>
-            <a [href]="featuredNews.link" class="read-more text-primary-custom fw-semibold text-decoration-none">
+            <a  [routerLink]="['../posts', 'news', featuredNews.id]" class="read-more text-primary-custom fw-semibold text-decoration-none">
               Read Full Story →
             </a>
           </div>
