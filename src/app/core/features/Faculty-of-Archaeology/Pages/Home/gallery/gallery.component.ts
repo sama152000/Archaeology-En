@@ -19,34 +19,34 @@ export class GalleryComponent {
   images: GalleryImage[] = [
     {
       id: 1,
-      src: './assets/lux4.jpg',
+      src: './assets/new1.jpg',
       alt: 'Temple of Luxor',
     },
     
      
     {
       id: 2,
-      src: './assets/lux5.jpg',
+      src: './assets/new2.jpg',
       alt: 'Ancient Sculpture',
     },
     {
       id: 3,
-      src: './assets/lux6.jpg',
+      src: './assets/new3.jpg',
       alt: 'Hieroglyphs',
     },
     {
       id: 4,
-      src: './assets/lux7.jpg',
+      src: './assets/new4.jpg',
       alt: 'Pharaoh Statue',
     },
      {
       id: 5,
-      src: './assets/lux10.jpg',
+      src: './assets/event3jpg.jpg',
       alt: 'Pharaoh Statue',
     },
   {
       id: 6,
-      src: './assets/lux9.jpg',
+      src: './assets/event4jpg.jpg',
       alt: 'Pharaoh Statue',
     },
   ];
