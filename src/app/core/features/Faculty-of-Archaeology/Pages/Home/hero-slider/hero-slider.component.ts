@@ -1,56 +1,50 @@
+// src/app/components/hero-slider/hero-slider.component.ts
+
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { HeroSectionService } from '../../../Services/hero-section.service';
+import { HeroSection } from '../../../model/hero-section.model';
 
 interface Slide {
-  id: number;
+  id: string;
   image: string;
   title: string;
   description: string;
   buttonText: string;
-  buttonLink: string | string[];
+  buttonLink: string;
 }
 
 @Component({
   selector: 'app-hero-slider',
   standalone: true,
-  imports: [CommonModule,RouterModule],
-  templateUrl: './hero-slider.component.html',
+  imports: [CommonModule],
+  templateUrl:'./hero-slider.component.html',
   styleUrls: ['./hero-slider.component.css']
 })
 export class HeroSliderComponent implements OnInit, OnDestroy {
   currentSlide = 0;
   autoSlideInterval: any;
+  slides: Slide[] = [];
 
-  slides: Slide[] = [
-    {
-      id: 1,
-      image: 'https://images.pexels.com/photos/71241/pexels-photo-71241.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
-      title: 'Welcome to Egypt',
-      description: 'Discover the ancient land of pharaohs and wonders.',
-      buttonText: 'Explore',
-      buttonLink: '/about/vision'
-    },
-    {
-      id: 2,
-      image: 'https://images.pexels.com/photos/262780/pexels-photo-262780.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
-      title: 'Discover History',
-      description: 'Walk through centuries of civilization and culture.',
-      buttonText: 'Learn More',
-      buttonLink: '/about/vision'
-    },
-    {
-      id: 3,
-      image: './assets/lux2.jpg',
-      title: 'Visit the Museum',
-      description: 'See treasures that tell Egypt\'s timeless story.',
-      buttonText: 'Get Tickets',
-      buttonLink: '/about/vision'
-    }
-  ];
+  constructor(private heroService: HeroSectionService) {}
 
   ngOnInit() {
-    this.startAutoSlide();
+    this.heroService.getHeroSections().subscribe({
+      next: (res) => {
+        this.slides = res.data.map(section => ({
+          id: section.id,
+          image: section.heroAttachments[0]?.url || '',
+          title: section.title,
+          description: section.description,
+          buttonText: ' Learn more', // ثابت أو ممكن يجي من API لو متوفر
+          buttonLink: '/about/vision'
+        }));
+        this.startAutoSlide();
+      },
+      error: (err) => {
+        console.error('Error fetching hero sections:', err);
+      }
+    });
   }
 
   ngOnDestroy() {

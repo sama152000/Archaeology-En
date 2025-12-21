@@ -1,8 +1,11 @@
+// src/app/components/fun-facts/fun-facts.component.ts
+
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { StatisticsService } from '../../../Services/statistics.service';
 
 interface Fact {
-  id: number;
+  id: string;
   icon: string;
   count: number;
   label: string;
@@ -20,32 +23,26 @@ export class FunFactsComponent implements OnInit, OnDestroy {
   private animationStarted = false;
   private observer?: IntersectionObserver;
 
-  facts: Fact[] = [
-    {
-      id: 1,
-      icon: 'pi pi-users',
-      count: 500,
-      label: 'Students',
-      currentCount: 0
-    },
-    {
-      id: 2,
-      icon: 'pi pi-trophy',
-      count: 0,
-      label: 'Awards Won',
-      currentCount: 0
-    },
-    {
-      id: 3,
-      icon: 'pi pi-graduation-cap',
-      count: 20,
-      label: 'Expert Staff',
-      currentCount: 0
-    }
-  ];
+  facts: Fact[] = [];
+
+  constructor(private statisticsService: StatisticsService) {}
 
   ngOnInit() {
-    this.setupIntersectionObserver();
+    this.statisticsService.getStatistics().subscribe({
+      next: (res) => {
+        this.facts = res.data.map(stat => ({
+          id: stat.id,
+          icon: stat.iconPath,
+          count: Number(stat.value), // تحويل القيمة من string إلى number
+          label: stat.title,
+          currentCount: 0
+        }));
+        this.setupIntersectionObserver();
+      },
+      error: (err) => {
+        console.error('Error fetching statistics:', err);
+      }
+    });
   }
 
   ngOnDestroy() {
@@ -77,7 +74,7 @@ export class FunFactsComponent implements OnInit, OnDestroy {
   }
 
   private animateCounter(fact: Fact) {
-    const duration = 2000; // 2 seconds
+    const duration = 2000; // 2 ثوانٍ
     const steps = 60;
     const increment = fact.count / steps;
     const stepDuration = duration / steps;

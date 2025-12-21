@@ -17,14 +17,15 @@ export class DepartmentsSectionComponent implements OnInit {
 
   constructor(private departmentsService: DepartmentsService) {}
 
-  ngOnInit(): void {
-    this.departmentsService.getDepartments().subscribe({
-      next: (data) => {
-        this.departments = data;
-      },
-      error: (error) => {
-        console.error('Error fetching departments:', error);
-      }
-    });
-  }
+ ngOnInit(): void {
+  this.departmentsService.getDepartments().subscribe({
+    next: (data: Department[]) => {
+      this.departments = data;
+    },
+    error: (error: any) => {
+      console.error('Error fetching departments:', error);
+    }
+  });
+}
+
 }

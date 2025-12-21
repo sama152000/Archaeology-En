@@ -21,7 +21,7 @@ export class DepartmentAboutComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.parent?.params.subscribe(params => {
-      const id = +params['id'];
+      const id = params['id']; // خليها string مش number
       this.deptService.getDepartment(id).subscribe(dept => {
         this.department = dept;
       });

@@ -1,0 +1,57 @@
+<div *ngIf="unit">
+  <div class="content-header">
+    <h2>Unit Information</h2>
+    <div class="underline"></div>
+  </div>
+
+  <!-- Unit Image -->
+  <div class="profile-card" *ngIf="unit.unitAttachments.length > 0">
+    <div class="profile-image">
+      <img [src]="unit.unitAttachments[0].url" [alt]="unit.unitTitle" style="max-width:100%; border-radius:100px;" />
+    </div>
+    <div class="profile-info">
+      <p class="title">{{ unit.unitTitle }}</p>
+    </div>
+  </div>
+
+  <!-- Unit Name -->
+  <div class="content-section">
+    <h3>{{ unit.unitTitle }}</h3>
+    <p>{{ unit.content }}</p>
+  </div>
+
+  <!-- Vision -->
+  <!-- <div class="content-section">
+    <h3>Vision</h3>
+    <p>{{ unit.vision }}</p>
+  </div> -->
+
+  <!-- Mission -->
+  <!-- <div class="content-section">
+    <h3>Mission</h3>
+    <p>{{ unit.mission }}</p>
+  </div> -->
+
+  <!-- Goals -->
+  <!-- <div class="content-section">
+    <h3>Goals</h3>
+    <ul>
+      <li *ngFor="let goal of unit.goals">{{ goal.goalName }}</li>
+    </ul>
+  </div> -->
+
+  <!-- Unit Director -->
+  <div class="content-section" *ngIf="leader">
+    <h3>Unit Director</h3>
+    <p>{{ leader.memberName }}</p>
+  </div>
+
+  <!-- Official Working Hours -->
+  <div class="content-section">
+    <h3>Official Working Hours</h3>
+    <p>
+      Sunday to Thursday: 8:00 AM – 4:00 PM<br>
+      Saturday: 9:00 AM – 1:00 PM
+    </p>
+  </div>
+</div>

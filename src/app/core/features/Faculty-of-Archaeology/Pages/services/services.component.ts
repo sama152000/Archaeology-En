@@ -28,7 +28,7 @@ export class ServicesComponent implements OnInit {
 
     // Set default route if on /services
     if (this.router.url === '/services') {
-      this.router.navigate(['/services/details']);
+      this.router.navigate(['/services/contact']);
     }
   }
 

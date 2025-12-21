@@ -21,9 +21,9 @@ export class CenterOverviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.parent?.params.subscribe(params => {
-      const id = +params['id'];
-      this.centersService.getCenter(id).subscribe(center => {
-        this.center = center;
+      const id = params['id']; // خليها string مش number
+      this.centersService.getCenters().subscribe(centers => {
+        this.center = centers.find(c => c.id === id);
       });
     });
   }

@@ -1,16 +1,42 @@
 <div *ngIf="department">
   <h2>{{ department.name }}</h2>
 
-  <div class="hod-card">
-    <img [src]="department.hod.image" [alt]="department.hod.name" />
-    <div class="hod-info">
-      <h3>{{ department.hod.name }}</h3>
-      <p class="title">{{ department.hod.title }}</p>
-      <p class="quote" *ngIf="department.hod.quote">"{{ department.hod.quote }}"</p>
+  <div class="profile-card" *ngIf="department.departmentAttachments.length > 0">
+    <div class="profile-image">
+      <img [src]="department.departmentAttachments[0]?.url" [alt]="department.name" />
+    </div>
+    <div class="profile-info">
+      <p class="title">{{ department.subTitle }}</p>
     </div>
   </div>
 
+  <!-- Overview -->
   <div class="about-dept-text">
-    <p *ngFor="let para of department.description" [innerHTML]="para"></p>
+    <h3 class="title">About the Department</h3>
+    <p>{{ department.about }}</p>
   </div>
+
+  <!-- Vision -->
+  <div class="about-dept-text">
+    <h3 class="title">Department Vision</h3>
+    <p>{{ department.vision }}</p>
+  </div>
+
+  <!-- Mission -->
+  <div class="about-dept-text">
+    <h3 class="title">Department Mission</h3>
+    <p>{{ department.mission }}</p>
+  </div>
+
+  <!-- Goals -->
+  <div class="about-dept-text">
+    <h3 class="title">Department Goals</h3>
+    <ul>
+      <li *ngFor="let goal of department.goals">
+        {{ goal.goalName }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Head of Department -->
 </div>

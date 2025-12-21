@@ -1,0 +1,17 @@
+<div class="content-header">
+  <h2>Faculty Members</h2>
+  <div class="underline"></div>
+</div>
+
+<div class="content-section">
+  <p class="intro-text">
+    The program is proud of its distinguished faculty members who contribute to both teaching and scientific research.
+  </p>
+</div>
+
+<div class="content-section">
+  <div class="info-card" *ngFor="let member of members">
+    <h3>{{ member.memberName }}</h3>
+    <p class="initials">{{ (member.programName) }}</p>
+  </div>
+</div>

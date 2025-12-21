@@ -1,7 +1,9 @@
+// src/app/components/about/vision/vision.component.ts
+
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AboutService } from '../../../Services/about.service';
-import { VisionMission } from '../../../model/about.model';
+import { AboutResponse } from '../../../model/about.model';
 
 @Component({
   selector: 'app-vision',
@@ -12,7 +14,7 @@ import { VisionMission } from '../../../model/about.model';
   host: {'class': 'vision-component'}
 })
 export class VisionComponent implements OnInit {
-  visionMission: VisionMission | null = null;
+  aboutData: AboutResponse | null = null;
   isLoading = true;
 
   constructor(private aboutService: AboutService) {}
@@ -22,12 +24,10 @@ export class VisionComponent implements OnInit {
   }
 
   loadVisionMission(): void {
-    console.log('Loading vision & mission...');
     this.isLoading = true;
-    this.aboutService.getVisionMission().subscribe({
+    this.aboutService.getAbout().subscribe({
       next: (data) => {
-        console.log('Vision & mission loaded:', data);
-        this.visionMission = data;
+        this.aboutData = data[0]; // أول عنصر من الـ API
         this.isLoading = false;
       },
       error: (error) => {

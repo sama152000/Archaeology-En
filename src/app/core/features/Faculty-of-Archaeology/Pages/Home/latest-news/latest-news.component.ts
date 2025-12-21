@@ -13,18 +13,22 @@ import { News } from '../../../model/news.model';
   styleUrls: ['./latest-news.component.css']
 })
 export class LatestNewsComponent implements OnInit {
-  featuredNews!: News;
+  featuredNews?: News;
   newsItems: News[] = [];
 
   constructor(private newsService: NewsService) {}
 
   ngOnInit(): void {
-    this.newsService.getFeaturedNews().subscribe(news => {
-      this.featuredNews = news;
-    });
+    this.newsService.getNews().subscribe(newsList => {
+      if (newsList.length > 0) {
+        // أول خبر أو الخبر اللي عليه flag featured
+        this.featuredNews = newsList.find(n => n.featured) || newsList[0];
 
-    this.newsService.getNews().subscribe(news => {
-      this.newsItems = news.filter(item => !item.featured).slice(0, 3);
+        // باقي الأخبار (آخر 3 غير المميز)
+        this.newsItems = newsList
+          .filter(item => item.id !== this.featuredNews?.id)
+          .slice(0, 3);
+      }
     });
   }
 }

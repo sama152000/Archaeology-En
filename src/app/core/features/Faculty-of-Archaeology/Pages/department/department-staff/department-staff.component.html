@@ -1,13 +1,84 @@
-<h2>Academic Staff — {{ department?.name }}</h2>
-<p class="intro-text">
-  The department is proud of its distinguished academic staff who contribute to both teaching and research.
-</p>
+<div class="content-header">
+  <h2>Faculty Members — {{ department?.name }}</h2>
+  <div class="underline"></div>
+</div>
 
-<div class="staff-grid">
-  <div class="staff-card" *ngFor="let member of department?.staff">
-    <img [src]="member.image" [alt]="member.name" />
-    <h3>{{ member.name }}</h3>
-    <p class="position">{{ member.position }}</p>
-    <p class="email"><i class="fa-solid fa-envelope"></i> {{ member.email }}</p>
+<div class="content-section">
+  <p class="intro-text">
+    The department is proud of its distinguished faculty members who contribute to both teaching and scientific research.
+  </p>
+</div>
+
+<div class="content-section">
+  <div class="info-card" *ngFor="let member of members">
+    <h3>{{ member.memberName }}</h3>
+    <p class="position">{{ member.isLeader ? 'Head of Department' : 'Faculty Member' }}</p>
   </div>
 </div>
+
+<div class="content-header">
+  <h2>Department Programs</h2>
+  <div class="underline"></div>
+</div>
+
+<div class="content-section">
+  <div class="info-card" *ngFor="let program of programs">
+    <h3>{{ program.programName }}</h3>
+    <p>{{ program.departmentName }}</p>
+    <button class="view-button" (click)="viewProgram(program.programId)">View Program</button>
+  </div>
+</div>
+
+<!-- 
+<div>
+<div class="content-header">
+  <h2>خدمات القسم</h2>
+    <div class="underline"></div>
+</div>
+<div class="content-section">
+
+  <h3>
+        يقدم القسم مجموعة من الخدمات الأكاديمية والميدانية لدعم الطلاب والمجتمع.
+
+  </h3>
+</div>
+
+<div class="content-section"  >
+ <h4><i class="fas fa-envelope"></i> {{ services[0]?.name }}</h4>
+      <p dir="ltr" style="direction: ltr; text-align: left;">{{ services[0]?.details }}</p>
+    </div>
+
+
+
+  <div class="grid-2" *ngFor="let service of services">
+    
+
+    <div class="info-card">
+      <h4><i class="fas fa-phone"></i> المدة</h4>
+      <p dir="ltr" style="direction: ltr; text-align: left;">{{ service.duration }}</p>
+    </div>
+
+    <div class="info-card">
+      <h4><i class="fas fa-map-marker-alt"></i> الفئة</h4>
+      <p>{{ service.category }}</p>
+    </div>
+    <div class="info-card">
+      <h4><i class="fas fa-map-marker-alt"></i> الرسوم</h4>
+      <p>{{ service.fees }} جنيه</p>
+    </div>
+
+    <div class="info-card">
+      <h4><i class="fas fa-user"></i> مدير الخدمة</h4>
+      <p>{{ service.contactPerson }}</p>
+    </div>
+
+     <div class="info-card">
+      <h4><i class="fas fa-user"></i>  الهاتف</h4>
+      <p>{{ service.contactPhone }}</p>
+    </div>
+  </div>
+
+
+  
+</div> 
+ -->

@@ -4,28 +4,28 @@
     <span class="underline"></span>
 
     <div class="loading-state" *ngIf="isLoading">
-      Loading vision and mission...
+      Loading Vision & Mission...
     </div>
 
-    <div class="content-grid" *ngIf="!isLoading && visionMission">
+    <div class="content-grid" *ngIf="!isLoading && aboutData">
       <!-- Vision Card -->
       <div class="content-card">
         <div class="card-icon">
-          <i [class]="visionMission.vision.icon"></i>
+          <i class="pi pi-eye"></i>
         </div>
-        <h4>{{ visionMission.vision.title }}</h4>
-        <p>{{ visionMission.vision.description }}</p>
+        <h4>Our Vision</h4>
+        <p>{{ aboutData.vision }}</p>
       </div>
     </div>
 
-    <div class="content-grid" *ngIf="!isLoading && visionMission">
+    <div class="content-grid" *ngIf="!isLoading && aboutData">
       <!-- Mission Card -->
       <div class="content-card">
         <div class="card-icon">
-          <i [class]="visionMission.mission.icon"></i>
+          <i class="pi pi-bullseye"></i>
         </div>
-        <h4>{{ visionMission.mission.title }}</h4>
-        <p>{{ visionMission.mission.description }}</p>
+        <h4>Our Mission</h4>
+        <p>{{ aboutData.mission }}</p>
       </div>
     </div>
   </div>

@@ -1,43 +1,32 @@
 <div *ngIf="sector">
   <div class="content-header">
-    <h2>Contact Information</h2>
+    <h2>Sector Services</h2>
     <div class="underline"></div>
   </div>
 
-  <div class="content-section">
-    <h3>{{ sector.name }}</h3>
-    <p>For inquiries about our projects, collaboration opportunities, or sector activities, please contact us using the information below.</p>
+  <!-- First Service Only -->
+  <div class="content-section" *ngIf="firstService">
+    <h3>{{ firstService.name }}</h3>
+    <p>{{ firstService.details }}</p>
+    <p><strong>Duration:</strong> {{ firstService.duration }}</p>
+    <p><strong>Category:</strong> {{ firstService.category }}</p>
+    <p><strong>Contact Person:</strong> {{ firstService.contactPerson }}</p>
+    <p><strong>Phone:</strong> {{ firstService.contactPhone }}</p>
   </div>
 
-  <div class="grid-2">
-    <div class="info-card">
-      <h4><i class="fas fa-envelope"></i> Email</h4>
-      <p>{{ sector.contactInfo.email }}</p>
-    </div>
-
-    <div class="info-card">
-      <h4><i class="fas fa-phone"></i> Phone</h4>
-      <p>{{ sector.contactInfo.phone }}</p>
-    </div>
-
-    <div class="info-card">
-      <h4><i class="fas fa-map-marker-alt"></i> Location</h4>
-      <p>{{ sector.contactInfo.location }}</p>
-    </div>
-
-    <div class="info-card">
-      <h4><i class="fas fa-user"></i> Sector Head</h4>
-      <p>{{ sector.head.name }}<br>{{ sector.head.title }}</p>
-    </div>
+  <!-- Sector Head -->
+  <div class="content-section" *ngIf="leader">
+    <h3>Sector Head</h3>
+    <p>{{ leader.memberName }}</p>
   </div>
 
+  <!-- Other Members -->
   <div class="content-section">
-    <h3>Collaboration Opportunities</h3>
-    <p>We welcome collaboration with academic institutions, research organizations, and professional archaeological teams. Contact us to discuss potential partnerships and joint projects.</p>
-  </div>
-
-  <div class="content-section">
-    <h3>Office Hours</h3>
-    <p>Sunday - Thursday: 8:00 AM - 4:00 PM<br>Saturday: 9:00 AM - 1:00 PM<br>Friday: Closed</p>
+    <h3>Sector Members</h3>
+    <ul>
+      <li *ngFor="let member of members" [class.leader]="member.isLeader">
+        {{ member.memberName }}
+      </li>
+    </ul>
   </div>
 </div>

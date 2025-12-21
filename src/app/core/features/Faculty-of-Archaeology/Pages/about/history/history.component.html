@@ -1,13 +1,13 @@
-<div class="fade-in-element">
-  <h2>Our History</h2>
+<div class="">
+  <h2>Faculty History</h2>
   <div class="underline"></div>
   
   <p class="intro-text">
-    Discover the journey of the Faculty of Archaeology at Luxor University - from its establishment to becoming a leading center for archaeological education and research.
+    Discover the journey of the Faculty of Archaeology at Luxor University from its establishment to becoming a leading center for archaeology education and scientific research in Egypt and the world.
   </p>
 
   <div class="loading-state" *ngIf="isLoading">
-    <p>Loading history...</p>
+    <p>Loading Faculty History...</p>
   </div>
 
   <div class="history-timeline" *ngIf="!isLoading">
@@ -26,6 +26,9 @@
             <p>{{ item.description }}</p>
           </div>
         </div>
+      </div>
+      <div class="timeline-image" *ngIf="item.image">
+        <img [src]="item.image" [alt]="item.title" />
       </div>
 
       <div class="timeline-line">

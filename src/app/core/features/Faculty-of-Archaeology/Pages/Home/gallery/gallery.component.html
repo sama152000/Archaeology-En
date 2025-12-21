@@ -10,6 +10,7 @@
            [class.wide]="image.size === 'wide'"
            (click)="openLightbox(image)">
         <img [src]="image.src" [alt]="image.alt" class="img-fluid">
+        <p class="caption">{{ image.alt }}</p>
       </div>
     </div>
   </div>
@@ -26,6 +27,7 @@
       </button>
       
       <img [src]="selectedImage.src" [alt]="selectedImage.alt" class="lightbox-image">
+      <h4>{{ selectedImage.alt }}</h4>
       
       <button class="lightbox-nav next" (click)="nextImage()" aria-label="Next">
         <i class="pi pi-chevron-right"></i>

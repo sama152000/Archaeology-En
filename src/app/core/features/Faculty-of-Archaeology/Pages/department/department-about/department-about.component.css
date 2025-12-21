@@ -1,14 +1,42 @@
 /* department-about.component.css */
+
+/* Style h2 like content-header */
+h2 {
+  color: #2b2410fd;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* Add underline after h2 */
+h2 + .underline {
+  width: 80px;
+  height: 4px;
+  background-color: #c59c6c;
+  border-radius: 4px;
+  margin: 0 auto 2rem auto;
+  display: block;
+}
+
+/* Style hod-card like info-card */
 .hod-card {
+  background: #f8f8f8;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   gap: 2rem;
-  background: #fdf8e4;
-  border: 2px solid #d4af37;
-  padding: 1.5rem;
-  border-radius: 12px;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.hod-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  background: #fff;
 }
 
 .hod-card img {
@@ -19,13 +47,59 @@
   border: 3px solid #d4af37;
 }
 
-.hod-info h3 { font-size: 1.3rem; color: #1e2a47; margin-bottom: 0.3rem; }
-.title { color: #d4af37; font-weight: bold; margin-bottom: 0.8rem; }
-.quote { font-style: italic; color: #555; }
+.hod-info h3 {
+  color: #00365e;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.hod-info .title {
+  color: #00365e;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.hod-info .quote {
+  font-style: italic;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Style about-dept-text like content-section */
+.about-dept-text {
+  margin-bottom: 3rem;
+}
+
+.about-dept-text .title {
+  color: #00365e;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  border-bottom: 2px solid #d2a85f;
+  display: inline-block;
+  padding-bottom: 5px;
+}
 
 .about-dept-text p {
-  margin-bottom: 1.2rem;
-  color: #444;
   font-size: 1rem;
   line-height: 1.8;
+  color: #444;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.about-dept-text ul {
+  padding-right: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.about-dept-text ul li {
+  margin-bottom: 0.5rem;
+  color: #555;
+  line-height: 1.6;
 }

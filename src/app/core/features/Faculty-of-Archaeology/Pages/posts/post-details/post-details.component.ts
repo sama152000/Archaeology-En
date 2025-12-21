@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { NewsService } from '../../../Services/news.service';
-import { News, Event,Announcement } from '../../../model/news.model';
-
+import { News, Event, Announcement } from '../../../model/news.model';
 
 @Component({
   selector: 'app-post-details',
@@ -14,7 +13,7 @@ import { News, Event,Announcement } from '../../../model/news.model';
 })
 export class PostDetailsComponent implements OnInit {
   postType: string = '';
-  postId: number = 0;
+  postId: string = '';
   currentPost: News | Event | Announcement | null = null;
   allPosts: (News | Event | Announcement)[] = [];
   isVisible: boolean = false;
@@ -26,12 +25,9 @@ export class PostDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // Scroll to top when component loads
-    window.scrollTo(0, 0);
-
     this.route.params.subscribe(params => {
       this.postType = params['type'];
-      this.postId = +params['id'];
+      this.postId = params['id']; // string UUID من الـ API
       this.loadPost();
     });
   }
@@ -40,33 +36,26 @@ export class PostDetailsComponent implements OnInit {
     switch (this.postType) {
       case 'news':
         this.newsService.getNewsById(this.postId).subscribe(post => {
-          console.log('PostDetails loadPost news id=', this.postId, 'found=', post);
           this.currentPost = post || null;
           this.isVisible = true;
         });
-        this.newsService.getNews().subscribe(posts => {
-          this.allPosts = posts;
-        });
+        this.newsService.getNews().subscribe(posts => this.allPosts = posts);
         break;
+
       case 'events':
         this.newsService.getEventById(this.postId).subscribe(post => {
-          console.log('PostDetails loadPost event id=', this.postId, 'found=', post);
           this.currentPost = post || null;
           this.isVisible = true;
         });
-        this.newsService.getEvents().subscribe(posts => {
-          this.allPosts = posts;
-        });
+        this.newsService.getEvents().subscribe(posts => this.allPosts = posts);
         break;
+
       case 'announcements':
         this.newsService.getAnnouncementById(this.postId).subscribe(post => {
-          console.log('PostDetails loadPost announcement id=', this.postId, 'found=', post);
           this.currentPost = post || null;
           this.isVisible = true;
         });
-        this.newsService.getAnnouncements().subscribe(posts => {
-          this.allPosts = posts;
-        });
+        this.newsService.getAnnouncements().subscribe(posts => this.allPosts = posts);
         break;
     }
   }
@@ -76,53 +65,35 @@ export class PostDetailsComponent implements OnInit {
   }
 
   getContent(): string {
-    if (this.currentPost && 'content' in this.currentPost) {
-      return this.currentPost.content || 'No content available.';
-    }
-    return 'No content available.';
+    return (this.currentPost as any)?.content || 'لا يوجد محتوى متاح.';
   }
 
   getDate(): string {
-    return this.currentPost?.date || '';
+    return (this.currentPost as any)?.date || '';
   }
 
   getImage(): string {
-    return this.currentPost?.image || '';
+    return (this.currentPost as any)?.image || '';
   }
 
   getAuthor(): string {
-    if (this.currentPost && 'author' in this.currentPost) {
-      return (this.currentPost as News).author || 'Faculty of Archaeology';
-    }
-    return 'Faculty of Archaeology';
+    return (this.currentPost as any)?.author || 'Faculty of Archaeology';
   }
 
   getLocation(): string {
-    if (this.currentPost && 'location' in this.currentPost) {
-      return (this.currentPost as Event).location || '';
-    }
-    return '';
+    return (this.currentPost as any)?.location || '';
   }
 
   getDepartment(): string {
-    if (this.currentPost && 'department' in this.currentPost) {
-      return (this.currentPost as Announcement).department || '';
-    }
-    return '';
+    return (this.currentPost as any)?.department || '';
   }
 
   getPriority(): string {
-    if (this.currentPost && 'priority' in this.currentPost) {
-      return (this.currentPost as Announcement).priority || '';
-    }
-    return '';
+    return (this.currentPost as any)?.priority || '';
   }
 
   getSchedule(): string {
-    if (this.currentPost && 'schedule' in this.currentPost) {
-      return (this.currentPost as Event).schedule || '';
-    }
-    return '';
+    return (this.currentPost as any)?.schedule || '';
   }
 
   getPreviousPost(): any {

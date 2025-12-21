@@ -1,0 +1,20 @@
+.view-button {
+  margin-top: 10px;
+  background-color: #c59c6c;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Almarai', sans-serif;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.view-button:hover {
+  background-color: #b68b5f;
+}

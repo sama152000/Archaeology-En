@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NewsService } from '../../../Services/news.service';
+import { News } from '../../../model/news.model';
 
 interface GalleryImage {
-  id: number;
+  id: string;
   src: string;
   alt: string;
   size?: 'normal' | 'tall' | 'wide';
@@ -13,45 +15,25 @@ interface GalleryImage {
   standalone: true,
   imports: [CommonModule],
   templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.css']
+  styleUrls: ['./gallery.component.css'],
+  providers: [NewsService]
 })
-export class GalleryComponent {
-  images: GalleryImage[] = [
-    {
-      id: 1,
-      src: './assets/new1.jpg',
-      alt: 'Temple of Luxor',
-    },
-    
-     
-    {
-      id: 2,
-      src: './assets/new2.jpg',
-      alt: 'Ancient Sculpture',
-    },
-    {
-      id: 3,
-      src: './assets/new3.jpg',
-      alt: 'Hieroglyphs',
-    },
-    {
-      id: 4,
-      src: './assets/new4.jpg',
-      alt: 'Pharaoh Statue',
-    },
-     {
-      id: 5,
-      src: './assets/event3jpg.jpg',
-      alt: 'Pharaoh Statue',
-    },
-  {
-      id: 6,
-      src: './assets/event4jpg.jpg',
-      alt: 'Pharaoh Statue',
-    },
-  ];
-
+export class GalleryComponent implements OnInit {
+  images: GalleryImage[] = [];
   selectedImage: GalleryImage | null = null;
+
+  constructor(private newsService: NewsService) {}
+
+  ngOnInit(): void {
+    this.newsService.getNews().subscribe(newsList => {
+      this.images = newsList.map((news, index) => ({
+        id: news.id,
+        src: news.image,
+        alt: news.title,
+        size: index % 3 === 0 ? 'wide' : 'normal' // مجرد توزيع شكلي
+      }));
+    });
+  }
 
   openLightbox(image: GalleryImage) {
     this.selectedImage = image;
@@ -63,7 +45,6 @@ export class GalleryComponent {
 
   nextImage() {
     if (!this.selectedImage) return;
-    
     const currentIndex = this.images.findIndex(img => img.id === this.selectedImage!.id);
     const nextIndex = (currentIndex + 1) % this.images.length;
     this.selectedImage = this.images[nextIndex];
@@ -71,7 +52,6 @@ export class GalleryComponent {
 
   prevImage() {
     if (!this.selectedImage) return;
-    
     const currentIndex = this.images.findIndex(img => img.id === this.selectedImage!.id);
     const prevIndex = currentIndex === 0 ? this.images.length - 1 : currentIndex - 1;
     this.selectedImage = this.images[prevIndex];

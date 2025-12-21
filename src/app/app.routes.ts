@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { FacultyOfArchaeologyComponent } from './core/features/Faculty-of-Archaeology/Faculty-of-Archaeology.component';
-import { HomeComponent } from './core/features/Faculty-of-Archaeology/Pages/Home/home.component';
 import { AboutComponent } from './core/features/Faculty-of-Archaeology/Pages/about/about.component';
 import { VisionComponent } from './core/features/Faculty-of-Archaeology/Pages/about/vision/vision.component';
 import { DeanMessageComponent } from './core/features/Faculty-of-Archaeology/Pages/about/dean-message/dean-message.component';
@@ -17,16 +16,22 @@ import { SectorsComponent } from './core/features/Faculty-of-Archaeology/Pages/s
 import { ContactUsComponent } from './core/features/Faculty-of-Archaeology/Pages/contact-us/contact-us.component';
 import { CenterOverviewComponent } from './core/features/Faculty-of-Archaeology/Pages/centers/center-overview/center-overview.component';
 import { CenterContactComponent } from './core/features/Faculty-of-Archaeology/Pages/centers/center-contact/center-contact.component';
-import { CenterActivitiesComponent } from './core/features/Faculty-of-Archaeology/Pages/centers/center-activities/center-activities.component';
-import { ServiceRequirementsComponent } from './core/features/Faculty-of-Archaeology/Pages/services/service-requirements/service-requirements.component';
-import { ServiceDetailsComponent } from './core/features/Faculty-of-Archaeology/Pages/services/service-details/service-details.component';
+// import { CenterActivitiesComponent } from './core/features/Faculty-of-Archaeology/Pages/centers/center-activities/center-activities.component';
+
 import { ServiceContactComponent } from './core/features/Faculty-of-Archaeology/Pages/services/service-contact/service-contact.component';
 import { SectorOverviewComponent } from './core/features/Faculty-of-Archaeology/Pages/sectors/sector-overview/sector-overview.component';
 import { SectorProjectsComponent } from './core/features/Faculty-of-Archaeology/Pages/sectors/sector-projects/sector-projects.component';
 import { SectorContactComponent } from './core/features/Faculty-of-Archaeology/Pages/sectors/sector-contact/sector-contact.component';
 import { HistoryComponent } from './core/features/Faculty-of-Archaeology/Pages/about/history/history.component';
 import { AdministrativeStructureComponent } from './core/features/Faculty-of-Archaeology/Pages/about/administrative-structure/administrative-structure.component';
-import { StrategicPlanComponent } from './core/features/Faculty-of-Archaeology/Pages/about/strategic-plan/strategic-plan.component';
+// import { StrategicPlanComponent } from './core/features/Faculty-of-Archaeology/Pages/about/strategic-plan/strategic-plan.component';
+import { HomeComponent } from './core/features/Faculty-of-Archaeology/Pages/Home/home.component';
+import { ProgramComponent } from './core/features/Faculty-of-Archaeology/Pages/program/program.component';
+import { ProgramAboutComponent } from './core/features/Faculty-of-Archaeology/Pages/program/program-about/program-about.component';
+import { ProgramStaffComponent } from './core/features/Faculty-of-Archaeology/Pages/program/program-staff/program-staff.component';
+import { UnitsComponent } from './core/features/Faculty-of-Archaeology/Pages/units/units.component';
+import { UnitOverviewComponent } from './core/features/Faculty-of-Archaeology/Pages/units/unit-overview/unit-overview.component';
+import { UnitContactComponent } from './core/features/Faculty-of-Archaeology/Pages/units/unit-contact/unit-contact.component';
 
 export const routes: Routes = [
   {
@@ -45,17 +50,17 @@ export const routes: Routes = [
       { path: 'objectives', component: ObjectivesComponent },
       { path: 'history', component: HistoryComponent },
       { path: 'administrative', component: AdministrativeStructureComponent },
-      { path: 'strategic', component: StrategicPlanComponent }
+      // { path: 'strategic', component: StrategicPlanComponent }
     ]
   },
       {
-        path: 'departments/:id',
+        path: 'department/:id',
         component: DepartmentComponent,
         children: [
           { path: '', redirectTo: 'about', pathMatch: 'full' },
           { path: 'about', component: DepartmentAboutComponent },
           { path: 'staff', component: DepartmentStaffComponent },
-          { path: 'admin', component: AdminStructureComponent }
+          { path: 'services', component: AdminStructureComponent }
         ]
       },
   { path: 'posts/:type/:id', component: PostDetailsComponent },
@@ -67,7 +72,7 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: 'overview', component: CenterOverviewComponent },
-      { path: 'activities', component: CenterActivitiesComponent },
+      // { path: 'activities', component: CenterActivitiesComponent },
       { path: 'contact', component: CenterContactComponent }
     ]
   },
@@ -77,9 +82,8 @@ export const routes: Routes = [
     path: 'services/:id',
     component: ServicesComponent,
     children: [
-      { path: '', redirectTo: 'details', pathMatch: 'full' },
-      { path: 'details', component: ServiceDetailsComponent },
-      { path: 'requirements', component: ServiceRequirementsComponent },
+      { path: '', redirectTo: 'contact', pathMatch: 'full' },
+      
       { path: 'contact', component: ServiceContactComponent }
     ]
   },
@@ -96,6 +100,27 @@ export const routes: Routes = [
     ]
   },
   
+  {
+    path: 'program/:id',
+    component: ProgramComponent,
+    children: [
+      { path: '', redirectTo: 'about', pathMatch: 'full' },
+      { path: 'about', component: ProgramAboutComponent },
+      { path: 'staff', component: ProgramStaffComponent },
+    ]
+  },
+  
+  // Units routes
+{
+  path: 'units/:id',
+  component: UnitsComponent,
+  children: [
+    { path: '', redirectTo: 'overview', pathMatch: 'full' },
+    { path: 'overview', component: UnitOverviewComponent },
+    { path: 'contact', component: UnitContactComponent }
+  ]
+},
+
   // Contact Us route
   { path: 'contact', component: ContactUsComponent },
     ]

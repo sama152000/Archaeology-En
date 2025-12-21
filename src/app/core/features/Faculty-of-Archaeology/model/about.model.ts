@@ -1,3 +1,25 @@
+// src/app/model/about.model.ts
+
+
+export interface AboutResponse {
+  id: string;
+  content: string;
+  mission: string;
+  vision: string;
+  history: string;
+  goals: Goal[];
+  pageId: string;
+  pageType: string;
+  pageName: string;
+}
+
+export interface Goal {
+  id: string;
+  index: number;
+  goalName: string;
+  aboutId: string;
+}
+
 export interface AboutSection {
   id: string;
   title: string;
@@ -5,68 +27,51 @@ export interface AboutSection {
   icon?: string;
 }
 
-export interface VisionMission {
-  vision: {
-    title: string;
-    description: string;
-    icon: string;
-  };
-  mission: {
-    title: string;
-    description: string;
-    icon: string;
-  };
+
+
+export interface DeanSpeechAttachment {
+  id: string;
+  fileName: string;
+  url: string;
 }
+// src/app/model/about.model.ts
 
 export interface DeanMessage {
-  name: string;
-  title: string;
-  image: string;
-  message: string[];
-  signature: string;
+  id: string;
+  memberName: string;
+  memberPosition: string;
+  speech: string;
+  deanSpeechAttachments: DeanSpeechAttachment[];
 }
 
+// src/app/model/member.model.ts
+export interface MemberAttachment {
+  id: string;
+  fileName: string;
+  url: string;
+}
+
+export interface Member {
+  id: string;
+  fullName: string;
+  position: string;
+  specialization: string;
+  memberType: 'President' | 'Sector' | 'Department' | 'Program' | 'Center';
+  memberAttachments: MemberAttachment[];
+}
+export interface AdministrativeStructure {
+  dean: Member;
+  viceDeans: Member[];
+  departmentHeads: Member[];}
 export interface Objective {
   id: string;
   title: string;
   description: string;
-  icon: string;
+  icon?: string;
 }
-
 export interface HistoryItem {
   year: string;
   title: string;
   description: string;
   image?: string;
-}
-
-export interface StrategicPlan {
-  title: string;
-  description: string;
-  goals: StrategicGoal[];
-  timeline: string;
-}
-
-export interface StrategicGoal {
-  id: string;
-  title: string;
-  description: string;
-  targets: string[];
-  icon: string;
-}
-
-export interface AdministrativeStructure {
-  dean: AdminPerson;
-  viceDeans: AdminPerson[];
-  departmentHeads: AdminPerson[];
-}
-
-export interface AdminPerson {
-  id: string;
-  name: string;
-  title: string;
-  image: string;
-  email?: string;
-  office?: string;
-  description?: string;
 }

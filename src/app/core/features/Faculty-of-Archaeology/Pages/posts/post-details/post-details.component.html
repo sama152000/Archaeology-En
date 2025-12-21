@@ -1,13 +1,12 @@
-
 <!-- ======= Post Details Section ======= -->
 <section class="about-section">
   <div class="container">
     <div class="about-layout">
       <!-- Sidebar -->
       <aside class="about-sidebar">
-        <h3>More {{ postType | titlecase }}</h3>
+        <h3>More from {{ postType === 'news' ? 'News' : postType === 'events' ? 'Events' : 'Announcements' }}</h3>
         <ul>
-          <li><a (click)="goBack()" style="cursor: pointer;">Back to All {{ postType | titlecase }}</a></li>
+          <li><a (click)="goBack()" style="cursor: pointer;">Back to {{ postType === 'news' ? 'All News' : postType === 'events' ? 'Events' : 'Announcements' }}</a></li>
           <li><a [routerLink]="['/posts', 'news']">Latest News</a></li>
           <li><a [routerLink]="['/posts', 'events']">Upcoming Events</a></li>
           <li><a [routerLink]="['/posts', 'announcements']">Announcements</a></li>
@@ -15,7 +14,7 @@
       </aside>
 
       <!-- Post Details -->
-      <div class="blog-details fade-in-element" [class.visible]="isVisible" *ngIf="currentPost">
+      <div class="blog-details " [class.visible]="isVisible" *ngIf="currentPost">
         <h2>{{ getTitle() }}</h2>
         <p class="blog-meta">
           <i class="pi pi-calendar"></i> {{ getDate() }}
@@ -23,7 +22,7 @@
           <span *ngIf="getLocation()"> | <i class="pi pi-map-marker"></i> {{ getLocation() }}</span>
           <span *ngIf="getDepartment()"> | <i class="pi pi-building"></i> {{ getDepartment() }}</span>
           <span *ngIf="getPriority()" class="priority-badge priority-{{ getPriority() }}">
-            {{ getPriority() | titlecase }}
+            {{ getPriority() === 'high' ? 'Urgent' : 'Medium' }}
           </span>
         </p>
 
@@ -37,33 +36,31 @@
           <img [src]="getImage()" [alt]="getTitle()" />
         </div>
 
-        <div class="blog-body" [innerHTML]="getContent()">
-        </div>
+        <div class="blog-body" [innerHTML]="getContent()"></div>
 
-        <!-- Navigation for Next / Previous -->
+        <!-- Post Navigation -->
         <div class="blog-navigation">
           <a *ngIf="getPreviousPost()" 
              (click)="navigateToPost(getPreviousPost())" 
              class="prev-article"
              style="cursor: pointer;">
-            <i class="pi pi-arrow-left"></i> Previous {{ postType | titlecase }}
+            <i class="pi pi-arrow-left"></i> {{ postType === 'news' ? 'Previous News' : postType === 'events' ? 'Previous Event' : 'Previous Announcement' }}
           </a>
           <a *ngIf="getNextPost()" 
              (click)="navigateToPost(getNextPost())" 
              class="next-article"
              style="cursor: pointer;">
-            Next {{ postType | titlecase }} <i class="pi pi-arrow-right"></i>
+            {{ postType === 'news' ? 'Next News' : postType === 'events' ? 'Next Event' : 'Next Announcement' }} <i class="pi pi-arrow-right"></i>
           </a>
         </div>
       </div>
 
       <!-- Post Not Found -->
-      <div class="blog-details fade-in-element" [class.visible]="isVisible" *ngIf="!currentPost">
-        <h2>Post Not Found</h2>
-        <p>The requested {{ postType }} could not be found.</p>
-        <a (click)="goBack()" class="btn" style="cursor: pointer;">Back to {{ postType | titlecase }}</a>
+      <div class="blog-details " [class.visible]="isVisible" *ngIf="!currentPost">
+        <h3>Content Not Found</h3>
+        <p>Unable to find the requested {{ postType === 'news' ? 'news' : postType === 'events' ? 'event' : 'announcement' }}.</p>
+        <a (click)="goBack()" class="btn" style="cursor: pointer;">Back to {{ postType === 'news' ? 'News' : postType === 'events' ? 'Events' : 'Announcements' }}</a>
       </div>
     </div>
   </div>
 </section>
-

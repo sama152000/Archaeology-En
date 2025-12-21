@@ -189,12 +189,11 @@ section {
 
 /* ===== CONTENT SECTION STYLES ===== */
 .content-header h2 {
-  color: #2b2410;
-  font-size: 2.5rem;
+  color: #2b2410f3;
+  font-size: 2rem;
   margin-bottom: 1rem;
   font-weight: 700;
   text-align: center;
-  font-family: "Cinzel", serif;
   letter-spacing: 0.5px;
 }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CentersService } from '../../../Services/center.service';
-import { Center } from '../../../model/center.model';
+import { Center, CenterMember } from '../../../model/center.model';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class CenterContactComponent implements OnInit {
   center?: Center;
+  leader?: CenterMember;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,9 +22,13 @@ export class CenterContactComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.parent?.params.subscribe(params => {
-      const id = +params['id'];
-      this.centersService.getCenter(id).subscribe(center => {
-        this.center = center;
+      const id = params['id']; // string GUID
+      this.centersService.getCenters().subscribe(centers => {
+        this.center = centers.find(c => c.id === id);
+      });
+
+      this.centersService.getCenterMembers(id).subscribe(members => {
+        this.leader = members.find(m => m.isLeader);
       });
     });
   }

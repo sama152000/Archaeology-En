@@ -1,57 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
-interface ContactForm {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
+import { ContactsService } from '../../Services/contacts.service';
+import { Contact } from '../../model/contact.model';
+import { SafeUrlPipe } from '../../../../pipes/safe-url.pipe';
 
 @Component({
   selector: 'app-contact-us',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, SafeUrlPipe],
   templateUrl: './contact-us.component.html',
-  styleUrls: ['./contact-us.component.css']
+  styleUrls: ['./contact-us.component.css'],
+  providers: [ContactsService]
 })
-export class ContactUsComponent {
-  contactData: ContactForm = {
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  };
+export class ContactUsComponent implements OnInit {
+  contact?: Contact;
 
-  isSubmitting = false;
-  submitMessage = '';
+  constructor(private contactsService: ContactsService) {}
 
-  onSubmit(): void {
-    this.isSubmitting = true;
-    this.submitMessage = '';
-
-    // Simulate form submission
-    setTimeout(() => {
-      this.submitMessage = 'Thank you for your message! We will get back to you soon.';
-      this.isSubmitting = false;
-      this.resetForm();
-    }, 2000);
-  }
-
-  resetForm(): void {
-    this.contactData = {
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    };
-  }
-
-  isFormValid(): boolean {
-    return this.contactData.name.trim() !== '' &&
-           this.contactData.email.trim() !== '' &&
-           this.contactData.subject.trim() !== '' &&
-           this.contactData.message.trim() !== '';
+  ngOnInit(): void {
+    this.contactsService.getContact().subscribe(contact => {
+      this.contact = contact;
+    });
   }
 }

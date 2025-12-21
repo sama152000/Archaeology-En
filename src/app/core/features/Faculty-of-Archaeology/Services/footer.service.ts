@@ -9,8 +9,7 @@ export class FooterService {
   private quickLinks: FooterLink[] = [
     { label: 'About', url: '/about' },
     { label: 'History', url: '/about/history' },
-    { label: 'Departments', url: '/departments/1' },
-    { label: 'Events', url: '/posts/events/1' },
+    { label: 'Events', url: '/posts/events' },
     { label: 'Contact', url: '/contact' }
   ];
 

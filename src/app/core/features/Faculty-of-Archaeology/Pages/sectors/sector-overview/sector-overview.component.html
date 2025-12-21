@@ -4,33 +4,40 @@
     <div class="underline"></div>
   </div>
 
-  <div class="profile-card">
+  <!-- Sector Image -->
+  <div class="profile-card" *ngIf="sector.sectorAttachments.length > 0">
     <div class="profile-image">
-      <img [src]="sector.head.image" [alt]="sector.head.name" />
+      <img [src]="sector.sectorAttachments[0].url" [alt]="sector.name" />
     </div>
-    <div class="profile-info">
-      <h3>{{ sector.head.name }}</h3>
-      <p class="title">{{ sector.head.title }}</p>
-      <p class="quote" *ngIf="sector.head.quote">"{{ sector.head.quote }}"</p>
+    <div class="profile-info" *ngIf="leader">
+      <h3>{{ leader.memberName }}</h3>
+      <p class="title">Sector Head</p>
     </div>
   </div>
 
+  <!-- Overview -->
   <div class="content-section">
     <h3>About the Sector</h3>
-    <p *ngFor="let para of sector.description">{{ para }}</p>
+    <p>{{ sector.about }}</p>
   </div>
 
+  <!-- Vision -->
   <div class="content-section">
-    <h3>Objectives</h3>
-    <ul>
-      <li *ngFor="let objective of sector.objectives">{{ objective }}</li>
-    </ul>
+    <h3>Vision</h3>
+    <p>{{ sector.vision }}</p>
   </div>
 
+  <!-- Mission -->
   <div class="content-section">
-    <h3>Key Achievements</h3>
+    <h3>Mission</h3>
+    <p>{{ sector.mission }}</p>
+  </div>
+
+  <!-- Goals -->
+  <div class="content-section">
+    <h3>Goals</h3>
     <ul>
-      <li *ngFor="let achievement of sector.achievements">{{ achievement }}</li>
+      <li *ngFor="let goal of sector.goals">{{ goal.goalName }}</li>
     </ul>
   </div>
 </div>

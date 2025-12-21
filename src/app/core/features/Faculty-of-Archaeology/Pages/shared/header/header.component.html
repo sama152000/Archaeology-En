@@ -3,11 +3,11 @@
     <div class="row align-items-center py-2">
       <div class="col-md-8">
         <div class="contact-info d-flex flex-wrap gap-3">
-          <span class="text-primary-custom">
-            <i class="fa fa-phone me-2"></i>011 26307483
+         <span class="text-primary-custom">
+             {{ contact?.phone }}   <i class="fa fa-phone me-2"></i>
           </span>
           <span class="text-primary-custom">
-            <i class="fa fa-envelope me-2"></i>info@farch.luxor.edu.eg
+          {{ contact?.email }}   <i class="fa fa-envelope me-2"></i>
           </span>
         </div>
       </div>
@@ -33,7 +33,7 @@
     <div class="logo-left">
       <a [routerLink]="['/home']">
         <div class="sun-logo">
-          <img src="./assets/arc-logo.png" alt="Faculty of Archaeology" />
+          <img [src]="logo?.url" alt="Faculty of Archaeology" />
           <div class="sun-glow"></div>
         </div>
       </a>

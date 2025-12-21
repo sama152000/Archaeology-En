@@ -21,7 +21,7 @@ export class ServiceContactComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.parent?.params.subscribe(params => {
-      const id = +params['id'];
+      const id = params['id']; // ✅ خليها string مش number
       this.servicesService.getService(id).subscribe(service => {
         this.service = service;
       });

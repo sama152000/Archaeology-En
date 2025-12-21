@@ -4,7 +4,7 @@
     <div class="underline"></div>
 
     <!-- Featured News -->
-    <div class="featured-news mb-5 fade-in-element">
+    <div class="featured-news mb-5 " *ngIf="featuredNews">
       <div class="row g-0 bg-white rounded-3 shadow">
         <div class="col-lg-6">
           <div class="featured-image">
@@ -17,8 +17,8 @@
             <span class="news-date text-primary-custom fw-semibold">{{ featuredNews.date }}</span>
             <h3 class="featured-title my-3">{{ featuredNews.title }}</h3>
             <p class="featured-excerpt text-muted mb-4">{{ featuredNews.excerpt }}</p>
-            <a  [routerLink]="['../posts', 'news', featuredNews.id]" class="read-more text-primary-custom fw-semibold text-decoration-none">
-              Read Full Story →
+            <a [routerLink]="['../posts', 'news', featuredNews.id]" class="read-more text-primary-custom fw-semibold text-decoration-none">
+              Read the full story →
             </a>
           </div>
         </div>
@@ -28,7 +28,7 @@
     <!-- News Grid -->
     <div class="row g-4">
       <div class="col-lg-4 col-md-6" *ngFor="let news of newsItems">
-        <div class="fade-in-element">
+        <div class="">
           <app-card
             [imageUrl]="news.image"
             [imageAlt]="news.title"
@@ -37,7 +37,7 @@
             [badge]="news.date"
             imageHeight="220px">
             <a [routerLink]="['../posts', 'news', news.id]" class="text-primary-custom fw-semibold text-decoration-none">
-              Read More →
+              Read more →
             </a>
           </app-card>
         </div>

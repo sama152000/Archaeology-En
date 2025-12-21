@@ -1,0 +1,507 @@
+/* ===== Program Pages Layout ===== */
+.about-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  align-items: flex-start;
+  padding: 60px 0;
+}
+
+.about-sidebar {
+  background: #f4f7fb;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.about-sidebar h3 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: #00365e;
+  border-bottom: 2px solid #d2a85f;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.about-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-sidebar ul li {
+  margin-bottom: 12px;
+}
+
+.about-sidebar ul li a {
+  color: #00365e;
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.about-sidebar ul li a:hover,
+.about-sidebar ul li a.active {
+  background: #00416a;
+  color: #fff;
+}
+
+.about-content {
+  min-height: 400px;
+}
+
+/* ===== Dean Word Section ===== */
+.dean-word-section {
+  background: #f8f5f0;
+  min-height: 100vh;
+  padding: 40px 0;
+}
+
+.dean-content {
+  background: white;
+  padding: 40px 50px;
+  border-radius: 10px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+}
+
+.dean-content h2 {
+  color: #2b2410;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-align: center;
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.5px;
+}
+
+.dean-content .underline {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, #c59c6c, #b68b5f);
+  margin: 0 auto 3rem;
+  border-radius: 2px;
+}
+
+/* ===== Dean Profile Card ===== */
+.dean-profile {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8f5f0, #fff);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dean-profile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(197, 156, 108, 0.2);
+}
+
+/* ===== Dean Image ===== */
+.dean-image {
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.dean-image img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #c59c6c;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: transform 0.4s ease;
+}
+
+.dean-image:hover img {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, transparent 0%, rgba(197, 156, 108, 0.1) 100%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.dean-image:hover .image-overlay {
+  opacity: 1;
+}
+
+/* ===== Dean Info ===== */
+.dean-info h3 {
+  font-size: 1.8rem;
+  color: #2b2410;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.dean-title {
+  font-size: 1.2rem;
+  color: #c59c6c;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* ===== Message Text ===== */
+.dean-text {
+  background: white;
+  padding: 3rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  border-left: 5px solid #c59c6c;
+  position: relative;
+}
+
+.message-content {
+  margin-bottom: 3rem;
+}
+
+.message-paragraph {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.message-paragraph::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 6px;
+  height: 6px;
+  background: #c59c6c;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(197, 156, 108, 0.4);
+}
+
+/* ===== Signature ===== */
+.signature-section {
+  border-top: 2px solid #f0f0f0;
+  padding-top: 2rem;
+  text-align: right;
+}
+
+.signature {
+  font-size: 1.1rem;
+  color: #2b2410;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== Vision & Mission Content ===== */
+.vision-mission-content {
+  background: #fff;
+  padding: 40px 50px;
+  border-radius: 10px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+}
+
+.vision-mission-content h2 {
+  color: #00365e;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.vision-mission-content .underline {
+  width: 80px;
+  height: 3px;
+  background: #d2a85f;
+  margin: 0 auto 30px;
+  border-radius: 4px;
+}
+
+.vision-mission-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.vision-box, .mission-box {
+  background: #f8f8f8;
+  padding: 30px 20px;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.vision-box:hover, .mission-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  background: #fff;
+}
+
+.icon-container {
+  margin-bottom: 15px;
+}
+
+.vision-box i, .mission-box i {
+  font-size: 2.5rem;
+  color: #00416a;
+}
+
+.vision-box h3, .mission-box h3 {
+  font-size: 1.5rem;
+  color: #00365e;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.vision-box p, .mission-box p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ===== Additional Content ===== */
+.additional-content {
+  margin-top: 40px;
+}
+
+.additional-content .row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.content-card {
+  background: #f8f8f8;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.content-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  background: #fff;
+}
+
+.content-card h4 {
+  color: #00365e;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.content-card p {
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== Fade-in Animation ===== */
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.fade-in-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .dean-content h2 {
+    font-size: 2.2rem;
+  }
+
+  .dean-profile {
+    gap: 1.5rem;
+    padding: 1.8rem;
+  }
+
+  .dean-image img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .dean-info h3 {
+    font-size: 1.6rem;
+  }
+
+  .dean-text {
+    padding: 2rem;
+  }
+
+  .message-paragraph {
+    font-size: 1rem;
+    padding-left: 1.2rem;
+    text-align: left;
+  }
+
+  .signature-section {
+    text-align: center;
+  }
+
+  .dean-content .underline {
+    margin: 0 auto 2.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+  .about-sidebar {
+    margin-bottom: 30px;
+    order: 2;
+  }
+  .dean-content, .vision-mission-content {
+    order: 1;
+  }
+  .vision-mission-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .additional-content .row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-layout {
+    padding: 40px 0;
+    gap: 30px;
+  }
+  .about-sidebar {
+    padding: 20px;
+  }
+  .dean-content, .vision-mission-content {
+    padding: 30px 25px;
+  }
+  .dean-content h2, .vision-mission-content h2 {
+    font-size: 1.8rem;
+  }
+  .vision-box, .mission-box {
+    padding: 25px 15px;
+    margin-bottom: 30px;
+  }
+  .vision-box i, .mission-box i {
+    font-size: 2.2rem;
+  }
+  .vision-box h3, .mission-box h3 {
+    font-size: 1.4rem;
+  }
+  .dean-profile {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+  .dean-image img {
+    width: 150px;
+    height: 150px;
+  }
+  .dean-content h2 {
+    font-size: 2rem;
+  }
+  .dean-text {
+    padding: 2rem;
+  }
+  .message-paragraph {
+    font-size: 1rem;
+    padding-left: 1.2rem;
+    text-align: left;
+  }
+  .signature-section {
+    text-align: center;
+  }
+  .dean-content .underline {
+    margin: 0 auto 2.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-layout {
+    padding: 30px 0;
+  }
+  .about-sidebar h3 {
+    font-size: 1.2rem;
+  }
+  .dean-content, .vision-mission-content {
+    padding: 25px 15px;
+  }
+  .dean-content h2, .vision-mission-content h2 {
+    font-size: 1.6rem;
+  }
+  .dean-content .underline, .vision-mission-content .underline {
+    width: 60px;
+    height: 3px;
+  }
+  .vision-box, .mission-box {
+    padding: 18px 12px;
+    margin-bottom: 25px;
+  }
+  .vision-box i, .mission-box i {
+    font-size: 1.8rem;
+  }
+  .vision-box h3, .mission-box h3 {
+    font-size: 1.2rem;
+  }
+  .dean-image img {
+    width: 130px;
+    height: 130px;
+  }
+  .dean-info h3 {
+    font-size: 1.4rem;
+  }
+  .dean-text {
+    padding: 1.5rem;
+  }
+  .message-paragraph {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  .signature {
+    font-size: 1rem;
+  }
+  .content-card {
+    padding: 20px;
+  }
+  .content-card h4 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dean-profile {
+    padding: 1.2rem;
+  }
+  .dean-text {
+    padding: 1.2rem;
+  }
+  .message-paragraph::before {
+    width: 5px;
+    height: 5px;
+    top: 0.5rem;
+  }
+}

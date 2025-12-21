@@ -12,6 +12,7 @@ import { Objective } from '../../../model/about.model';
 })
 export class ObjectivesComponent implements OnInit {
   objectives: Objective[] = [];
+  isLoading = true;
 
   constructor(private aboutService: AboutService) {}
 
@@ -21,11 +22,13 @@ export class ObjectivesComponent implements OnInit {
 
   loadObjectives(): void {
     this.aboutService.getObjectives().subscribe({
-      next: (data) => {
+      next: (data: Objective[]) => {
         this.objectives = data;
+        this.isLoading = false;
       },
-      error: (error) => {
+      error: (error: any) => {
         console.error('Error loading objectives:', error);
+        this.isLoading = false;
       }
     });
   }

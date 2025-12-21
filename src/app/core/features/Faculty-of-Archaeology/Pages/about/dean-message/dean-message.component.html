@@ -1,28 +1,22 @@
 <div class="fade-in-element" *ngIf="deanMessage">
-  <h2>Dean's Word</h2>
+<h2>Dean's Message</h2>
   <div class="underline"></div>
 
   <div class="dean-profile">
     <div class="dean-image">
-      <img [src]="deanMessage.image" [alt]="deanMessage.name" />
+      <img [src]="deanMessage.deanSpeechAttachments[0]?.url" [alt]="deanMessage.memberName" />
       <div class="image-overlay"></div>
     </div>
 
     <div class="dean-info">
-      <h3>{{ deanMessage.name }}</h3>
-      <p class="dean-title">{{ deanMessage.title }}</p>
+      <h3>{{ deanMessage.memberName }}</h3>
+      <p class="dean-title">{{ deanMessage.memberPosition }}</p>
     </div>
   </div>
 
   <div class="dean-text">
     <div class="message-content">
-      <p *ngFor="let paragraph of deanMessage.message" class="message-paragraph">
-        {{ paragraph }}
-      </p>
-    </div>
-
-    <div class="signature-section">
-      <p class="signature" [innerHTML]="formatSignature(deanMessage.signature)"></p>
+      <p>{{ deanMessage.speech }}</p>
     </div>
   </div>
 </div>

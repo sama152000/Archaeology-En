@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Router, NavigationEnd, RouterOutlet } from '@angular/router';
+import { RouterModule, Router, NavigationEnd, RouterOutlet, ActivatedRoute, Params } from '@angular/router';
 import { DepartmentsService } from '../../Services/departments.service';
 import { DepartmentSection } from '../../model/departments.model';
 import { filter } from 'rxjs/operators';
@@ -19,30 +19,32 @@ export class DepartmentComponent implements OnInit {
 
   constructor(
     private departmentsService: DepartmentsService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {
-    this.loadDepartmentSections();
+ngOnInit(): void {
+  this.route.params.subscribe((params: Params) => {
+    const id = params['id']; // string GUID
+    this.loadDepartmentSections(id);
     this.trackActiveSection();
-
-    // Set default route if on /department
-    if (this.router.url === '/department') {
-      this.router.navigate(['/department/about']);
+    if (this.router.url === `/department/${id}`) {
+      this.router.navigate([`/department/${id}/about`]);
     }
-  }
+  });
+}
 
-  loadDepartmentSections(): void {
-    this.departmentsService.getDepartmentSections().subscribe({
-      next: (sections) => {
-        this.departmentSections = sections;
-        console.log('Loaded sections:', sections);
-      },
-      error: (error) => {
-        console.error('Error loading department sections:', error);
-      }
-    });
-  }
+loadDepartmentSections(departmentId: string): void {
+  this.departmentsService.getDepartmentSections(departmentId).subscribe({
+    next: (sections) => {
+      this.departmentSections = sections;
+    },
+    error: (error) => {
+      console.error('Error loading department sections:', error);
+    }
+  });
+}
+
 
   trackActiveSection(): void {
     this.router.events

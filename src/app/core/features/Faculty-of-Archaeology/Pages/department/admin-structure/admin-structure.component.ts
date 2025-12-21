@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DepartmentsService } from '../../../Services/departments.service';
-import { Department } from '../../../model/departments.model';
+import { DepartmentService } from '../../../model/departments.model';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -12,7 +12,8 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./admin-structure.component.css']
 })
 export class AdminStructureComponent implements OnInit {
-  department?: Department;
+  services: DepartmentService[] = [];
+  isLoading = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,9 +22,16 @@ export class AdminStructureComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.parent?.params.subscribe(params => {
-      const id = +params['id'];
-      this.deptService.getDepartment(id).subscribe(dept => {
-        this.department = dept;
+      const id = params['id']; // خليها string مش number
+      this.deptService.getDepartmentServices(id).subscribe({
+        next: (data: DepartmentService[]) => {
+          this.services = data;
+          this.isLoading = false;
+        },
+        error: (error: any) => {
+          console.error('Error loading services:', error);
+          this.isLoading = false;
+        }
       });
     });
   }

@@ -1,0 +1,51 @@
+/* Unit Overview Component Styles */
+.content-header h2 {
+  color: #2b2410ef;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.underline {
+  width: 80px;
+  height: 4px;
+  background-color: #c59c6c;
+  border-radius: 4px;
+  margin: 0 auto 2rem auto;
+  display: block;
+}
+
+.content-section {
+  margin-bottom: 3rem;
+}
+
+.content-section h3 {
+  color: #00365e;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  border-bottom: 2px solid #d2a85f;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.content-section p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.content-section ul {
+  padding-right: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.content-section ul li {
+  margin-bottom: 0.5rem;
+  color: #555;
+  line-height: 1.6;
+}

@@ -1,0 +1,38 @@
+<div *ngIf="program">
+  <h2>{{ program.pageTitle }}</h2>
+
+  <div class="hod-card" *ngIf="program.programAttachments.length > 0">
+    <img [src]="program.programAttachments[0]?.url" [alt]="program.pageTitle" />
+    <div class="hod-info">
+      <p class="title">{{ program.pageTitle }}</p>
+    </div>
+  </div>
+  
+  <!-- Overview -->
+  <div class="about-dept-text">
+    <h3 class="title">About the Program</h3>
+    <p>{{ program.about }}</p>
+  </div>
+
+  <!-- Vision -->
+  <div class="about-dept-text">
+    <h3 class="title">Program Vision</h3>
+    <p>{{ program.vision }}</p>
+  </div>
+
+  <!-- Mission -->
+  <div class="about-dept-text">
+    <h3 class="title">Program Mission</h3>
+    <p>{{ program.mission }}</p>
+  </div>
+
+  <!-- Goals -->
+  <div class="about-dept-text">
+    <h3 class="title">Program Goals</h3>
+    <ul>
+      <li *ngFor="let goal of program.goals">
+        {{ goal.goalName }}
+      </li>
+    </ul>
+  </div>
+</div>

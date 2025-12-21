@@ -1,16 +1,44 @@
-<div *ngIf="department">
-  <h2>Administrative Structure — {{ department.name }}</h2>
-  <p class="intro-text">
-    The department is led by a dedicated administrative team committed to academic excellence and student success.
-  </p>
+<div>
+  <div class="content-header">
+    <h2>Department Services</h2>
+    <div class="underline"></div>
+  </div>
 
-  <div class="admin-cards">
-    <div class="admin-card hod">
-      <img style="width:50%" [src]="department.hod.image" [alt]="department.hod.name" />
-      <h3>{{ department.hod.name }}</h3>
-      <p class="title">{{ department.hod.title }}</p>
-      <p class="quote" *ngIf="department.hod.quote">"{{ department.hod.quote }}"</p>
+  <div class="content-section">
+    <h3>
+      The department offers a range of academic and field services to support students and the community.
+    </h3>
+  </div>
+
+  <div class="content-section">
+    <h4><i class="fas fa-envelope"></i> {{ services[0]?.name }}</h4>
+    <p dir="ltr" style="direction: ltr; text-align: left;">{{ services[0]?.details }}</p>
+  </div>
+
+  <div class="grid-2" *ngFor="let service of services">
+    <div class="info-card">
+      <h4><i class="fas fa-phone"></i> Duration</h4>
+      <p dir="ltr" style="direction: ltr; text-align: left;">{{ service.duration }}</p>
     </div>
-    <!-- Additional department-specific admin members can be added here -->
+
+    <div class="info-card">
+      <h4><i class="fas fa-map-marker-alt"></i> Category</h4>
+      <p>{{ service.category }}</p>
+    </div>
+
+    <div class="info-card">
+      <h4><i class="fas fa-map-marker-alt"></i> Fees</h4>
+      <p>{{ service.fees }} EGP</p>
+    </div>
+
+    <div class="info-card">
+      <h4><i class="fas fa-user"></i> Service Manager</h4>
+      <p>{{ service.contactPerson }}</p>
+    </div>
+
+    <div class="info-card">
+      <h4><i class="fas fa-user"></i> Phone</h4>
+      <p>{{ service.contactPhone }}</p>
+    </div>
   </div>
 </div>

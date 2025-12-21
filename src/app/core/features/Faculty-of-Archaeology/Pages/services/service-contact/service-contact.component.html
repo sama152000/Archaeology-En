@@ -1,43 +1,27 @@
 <div *ngIf="service">
   <div class="content-header">
-    <h2>Contact Information</h2>
+    <h2>Service Information</h2>
     <div class="underline"></div>
   </div>
 
   <div class="content-section">
-    <h3>{{ service.name }}</h3>
-    <p>For inquiries about this service, consultations, or to schedule appointments, please contact us using the information below.</p>
+    <h3>{{ service.title }}</h3>
+    <p>{{ service.description }}</p>
   </div>
 
   <div class="grid-2">
     <div class="info-card">
-      <h4><i class="fas fa-envelope"></i> Email</h4>
-      <p>{{ service.contactInfo.email }}</p>
-    </div>
-
-    <div class="info-card">
-      <h4><i class="fas fa-phone"></i> Phone</h4>
-      <p>{{ service.contactInfo.phone }}</p>
-    </div>
-
-    <div class="info-card">
-      <h4><i class="fas fa-map-marker-alt"></i> Office Location</h4>
-      <p>{{ service.contactInfo.office }}</p>
-    </div>
-
-    <div class="info-card">
-      <h4><i class="fas fa-user"></i> Service Manager</h4>
-      <p>{{ service.manager.name }}<br>{{ service.manager.title }}</p>
+      <h4><i [class]="service.iconPath"></i> Service Status </h4>
+      <p>This service is currently available: {{ service.isActive ? 'Yes' : 'No' }}</p>
     </div>
   </div>
 
   <div class="content-section">
-    <h3>Response Time</h3>
-    <p>We typically respond to inquiries within 24-48 hours during business days. For urgent matters, please call our office directly.</p>
-  </div>
-
-  <div class="content-section">
-    <h3>Business Hours</h3>
-    <p>Sunday - Thursday: 8:00 AM - 4:00 PM<br>Saturday: 9:00 AM - 1:00 PM<br>Friday: Closed</p>
+    <h3>Official Working Hours</h3>
+    <p>
+      Sunday to Thursday: 8:00 AM – 4:00 PM<br>
+      Saturday: 9:00 AM – 1:00 PM<br>
+      Friday: Official Holiday
+    </p>
   </div>
 </div>

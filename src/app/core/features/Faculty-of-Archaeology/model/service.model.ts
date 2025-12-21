@@ -1,23 +1,11 @@
+// src/app/model/service.model.ts
+
 export interface Service {
-  id: number;
-  name: string;
-  slug: string;
-  description: string[];
-  shortDescription: string;
-  image: string;
-  manager: {
-    name: string;
-    title: string;
-    image: string;
-  };
-  servicesList: string[];
-  benefits: string[];
-  requirements: string[];
-  contactInfo: {
-    email: string;
-    phone: string;
-    office: string;
-  };
+  id: string;
+  title: string;
+  description: string;
+  iconPath: string;
+  isActive: boolean;
 }
 
 export interface ServiceSection {

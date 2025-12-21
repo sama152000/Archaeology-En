@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SectorsService } from '../../../Services/sectors.service';
-import { Sector } from '../../../model/sector.model';
+import { Sector, SectorMember } from '../../../model/sector.model';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class SectorOverviewComponent implements OnInit {
   sector?: Sector;
+  leader?: SectorMember;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,9 +22,14 @@ export class SectorOverviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.parent?.params.subscribe(params => {
-      const id = +params['id'];
-      this.sectorsService.getSector(id).subscribe(sector => {
-        this.sector = sector;
+      const id = params['id'];
+
+      this.sectorsService.getSectors().subscribe(sectors => {
+        this.sector = sectors.find(s => s.id === id);
+      });
+
+      this.sectorsService.getSectorMembers(id).subscribe(members => {
+        this.leader = members.find(m => m.isLeader);
       });
     });
   }

@@ -4,12 +4,10 @@ import { RouterModule } from '@angular/router';
 import { NewsService } from '../../../Services/news.service';
 import { Event } from '../../../model/news.model';
 
-
-
 @Component({
   selector: 'app-upcoming-events',
   standalone: true,
-  imports: [CommonModule,RouterModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './upcoming-events.component.html',
   styleUrls: ['./upcoming-events.component.css']
 })
@@ -19,7 +17,9 @@ export class UpcomingEventsComponent implements OnInit {
   constructor(private newsService: NewsService) {}
 
   ngOnInit(): void {
+    // جلب الفعاليات من الـ API
     this.newsService.getEvents().subscribe(events => {
+      // عرض أول 3 فعاليات فقط
       this.events = events.slice(0, 3);
     });
   }

@@ -1,0 +1,44 @@
+<div *ngIf="unit">
+  <div class="content-header">
+    <h2>{{ unit.unitTitle }}</h2>
+    <div class="underline"></div>
+  </div>
+
+  <!-- Overview -->
+  <div class="content-section">
+    <h3>About the Unit</h3>
+    <p>{{ unit.content }}</p>
+  </div>
+
+  <!-- Vision -->
+  <div class="content-section">
+    <h3>Vision</h3>
+    <p>{{ unit.vision }}</p>
+  </div>
+
+  <!-- Mission -->
+  <div class="content-section">
+    <h3>Mission</h3>
+    <p>{{ unit.mission }}</p>
+  </div>
+
+  <!-- Goals -->
+  <div class="content-section">
+    <h3>Goals</h3>
+    <ul>
+      <li *ngFor="let goal of unit.goals">
+        {{ goal.goalName }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Attachments -->
+  <!-- <div class="content-section" *ngIf="unit.unitAttachments.length > 0">
+    <h3>Unit Images</h3>
+    <div class="grid-2">
+      <div class="info-card" *ngFor="let att of unit.unitAttachments">
+        <img [src]="att.url" [alt]="unit.unitTitle" style="max-width:100%; border-radius:8px;" />
+      </div>
+    </div> -->
+  <!-- </div> -->
+</div>

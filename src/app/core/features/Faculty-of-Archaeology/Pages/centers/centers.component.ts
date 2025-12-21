@@ -4,6 +4,7 @@ import { RouterModule, Router, NavigationEnd, RouterOutlet } from '@angular/rout
 import { CentersService } from '../../Services/center.service';
 import { CenterSection } from '../../model/center.model';
 import { filter } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-centers',
@@ -16,27 +17,32 @@ import { filter } from 'rxjs/operators';
 export class CentersComponent implements OnInit {
   centerSections: CenterSection[] = [];
   activeSection: string = '';
+  centerId: string = '';
 
   constructor(
     private centersService: CentersService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.loadCenterSections();
-    this.trackActiveSection();
+    this.route.params.subscribe(params => {
+      this.centerId = params['id']; // الـ id من الـ route
+      this.loadCenterSections(this.centerId);
 
-    // Set default route if on /centers
-    if (this.router.url === '/centers') {
-      this.router.navigate(['/centers/overview']);
-    }
+      // Set default route if on /centers/:id
+      if (this.router.url === `/centers/${this.centerId}`) {
+        this.router.navigate([`/centers/${this.centerId}/overview`]);
+      }
+    });
+
+    this.trackActiveSection();
   }
 
-  loadCenterSections(): void {
-    this.centersService.getCenterSections().subscribe({
+  loadCenterSections(centerId: string): void {
+    this.centersService.getCenterSections(centerId).subscribe({
       next: (sections) => {
         this.centerSections = sections;
-        console.log('Loaded center sections:', sections);
       },
       error: (error) => {
         console.error('Error loading center sections:', error);
